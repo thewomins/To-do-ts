@@ -1,0 +1,18 @@
+
+.task{
+    display: flex;
+    flex-direction: row;
+    padding: 0 10px;
+    margin: 0 5px;
+    border-radius: 100px;
+    user-select: none;
+}
+
+.task:hover{
+    cursor: pointer;
+    background-color: gray;
+}
+
+.state{
+    margin: auto 0 auto auto;
+}

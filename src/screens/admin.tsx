@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
-import { useTodo } from './hooks/Todo';
+import { useTodo } from './../hooks/Todo';
 
 const todo = {id:1,nombre:'anadido',list: [{id:0,body:"1",estado:false}]}
 
-const App=()=> {
+const Admin=()=> {
   const {Todos,dispatch} = useTodo();
   
   useEffect(()=>(
@@ -30,7 +29,7 @@ const App=()=> {
   }
 
   return (
-    <div className="App">
+    <div className="Menu">
       <header className="App-header">
         <button
           onClick={()=>(onclickAdd())}>
@@ -49,4 +48,4 @@ const App=()=> {
   );
 }
 
-export default App;
+export default Admin;
