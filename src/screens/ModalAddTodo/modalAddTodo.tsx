@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Modal from "../Modal/modal";
+import Modal from "../../components/Modal/modal";
 import {Todo,TaskType} from "../../types/Todo.types"
 import './modalAddTodo.css'
-import Input from "../Input/input";
-import Button from "../Button/button";
+import Input from "../../components/Input/input";
+import Button from "../../components/Button/button";
 
 
 type props={
