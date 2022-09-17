@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import "./modal.css";
 
-type props = {
-  children: any;
-  title: string;
-  onClickOutside?: any;
-};
+type props={
+  children :any
+  title? : string
+  onClickOutside?:any
+}
 
 const Modal: React.FC<props> = ({onClickOutside, title, children}) => {
   return (
