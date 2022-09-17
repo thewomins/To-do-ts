@@ -3,7 +3,7 @@ import './modal.css'
 
 type props={
     children :any
-    title : string
+    title? : string
     onClickOutside?:any
 }
 

@@ -1,0 +1,35 @@
+.containerDescription{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden
+}
+
+.containerTaskModal{
+    margin:5px 0;
+    max-height: 65%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.containerTaskModal::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+.containerTaskModal::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px grey; 
+    border-radius: 10px;
+}
+
+/* Handle */
+.containerTaskModal::-webkit-scrollbar-thumb {
+    background: blue; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.containerTaskModal::-webkit-scrollbar-thumb:hover {
+    background: #009eb3; 
+}
