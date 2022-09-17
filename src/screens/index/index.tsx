@@ -4,13 +4,16 @@ import TareaCard from './../../components/TareaCard/tareaCard'
 import Menu from "./../../components/menu/menu";
 import Button from './../../components/Button/button'
 import { useTodo } from "../../hooks/Todo";
-import ModalAddTodo from "./../../components/ModalAddTodo/modalAddTodo"
+import ModalAddTodo from "../ModalAddTodo/modalAddTodo"
 
 import {TaskType,Todo} from "./../../types/Todo.types"
+import ModalTodo from "../modalTodo/modalTodo";
 
 export const App: React.FC = () => {
     const {Todos,dispatch} = useTodo();
     const [showModalAdd,setShowModalAdd] = useState(false);
+    const [showModalDetail,setShowModalDetail] = useState(false);
+    const [todoSelected,setTodoSelected] = useState<Todo|undefined>();
   
     useEffect(()=>(
       console.log("todo",Todos)
@@ -22,8 +25,9 @@ export const App: React.FC = () => {
         //dispatch({type:"addTodo",Todo:todo})
     }
 
-    const onClickCard=(event:any)=>{
-        console.log("click card",event)
+    const onClickCard=(todo:Todo)=>{
+        setShowModalDetail(true);
+        setTodoSelected(todo);
     }
 
     const onClickTask=(event:any,todo:Todo,task:TaskType)=>{
@@ -49,6 +53,11 @@ export const App: React.FC = () => {
                 setShow={setShowModalAdd}
                 title={"pepelanpof"}
                 onClickSubmit={onClickSubmit}/>
+            <ModalTodo
+                show={showModalDetail}
+                setShow={setShowModalDetail}
+                Todo={todoSelected}
+            />
             <Menu/>
             <div className="contenedor_buttons">
                 <Button
