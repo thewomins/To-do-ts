@@ -9,14 +9,12 @@ type props = {
   show: boolean;
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
   title: string;
-  data?: Todo;
   onClickSubmit: (todo: Todo) => void;
 };
 
 const ModalAddTodo: React.FC<props> = ({
   onClickSubmit,
   title,
-  data,
   setShow,
   show,
 }) => {
@@ -63,51 +61,49 @@ const ModalAddTodo: React.FC<props> = ({
   };
 
   return (
-    <div hidden={!show}>
-      <Modal title={title} onClickOutside={onClickOutside}>
-        <div className="containerDescription">
-          <div>
-            <Input
-              id="nombre"
-              textoInput="Nombre"
-              type="text"
-              color="primary"
-              onChange={onChangeName}
-            />
-            <div className="containerButtonModal">
-              <Button
-                textoButton="Borrar tarea"
-                onClick={() => handleDeleteTask()}
-              />
-              <Button
-                textoButton="Añadir tarea"
-                onClick={() => handleAddTask()}
-              />
-            </div>
-          </div>
-          <div className="containerTaskModal">
-            {task.map((element, index) => (
-              <Input
-                key={index}
-                style={{margin: 5}}
-                id={element.id.toString()}
-                textoInput="Tarea"
-                type="text"
-                color="primary"
-                onChange={onChangeTasks}
-              />
-            ))}
-          </div>
-          <div className="containerButtonActionModal">
-            <Button textoButton="Cancelar" onClick={() => onClickOutside()} />
+    <Modal title={title} onClickOutside={onClickOutside} show={show}>
+      <div className="containerDescription">
+        <div>
+          <Input
+            id="nombre"
+            textoInput="Nombre"
+            type="text"
+            color="primary"
+            onChange={onChangeName}
+          />
+          <div className="containerButtonModal">
             <Button
-              textoButton="Añadir"
-              onClick={() => onClickSubmit({id: 0, list: task, nombre: name})}
+              textoButton="Borrar tarea"
+              onClick={() => handleDeleteTask()}
+            />
+            <Button
+              textoButton="Añadir tarea"
+              onClick={() => handleAddTask()}
             />
           </div>
         </div>
-      </Modal>
-    </div>
+        <div className="containerAddTaskModal">
+          {task.map((element, index) => (
+            <Input
+              key={index}
+              style={{margin: 5}}
+              id={element.id.toString()}
+              textoInput="Tarea"
+              type="text"
+              color="primary"
+              onChange={onChangeTasks}
+            />
+          ))}
+        </div>
+        <div className="containerButtonActionModal">
+          <Button textoButton="Cancelar" onClick={() => onClickOutside()} />
+          <Button
+            textoButton="Añadir"
+            onClick={() => onClickSubmit({id: 0, list: task, nombre: name})}
+          />
+        </div>
+      </div>
+    </Modal>
   );
 };
 
