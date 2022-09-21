@@ -9,6 +9,7 @@
 }
 
 .exitModal{
+    position: relative;
     cursor: pointer;
     z-index: 2;
     transform: translateY(-280px) translateX(-20px);
@@ -23,6 +24,7 @@
     align-items: center;
     border-radius: 25px;
     background-color: rgb(235, 233, 233);
+    padding-bottom: 20px;
 }
 
 .titleModal{
@@ -33,5 +35,4 @@
     height: calc(100% - 90px);
     width: calc(100% - 55px);
     margin: 0 auto auto auto;
-    
 }
