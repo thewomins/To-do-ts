@@ -8,9 +8,6 @@
       "es2022"
     ],
     "baseUrl": "./",
-    "paths": {
-      "~src/*": ["./src/*"]
-    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -25,9 +22,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-  ],
   "exclude": [
     "node_modules",
   ]
