@@ -13,7 +13,7 @@ export const App: React.FC = () => {
   const {Todos, dispatch} = useTodo();
   const [showModalAdd, setShowModalAdd] = useState(false);
   const [showModalDetail, setShowModalDetail] = useState(false);
-  const [todoSelected, setTodoSelected] = useState<Todo | undefined>();
+  const [todoSelected, setTodoSelected] = useState<number>(0);
 
   useEffect(() => console.log("todo", Todos), [Todos]);
 
@@ -25,7 +25,7 @@ export const App: React.FC = () => {
 
   const onClickCard = (todo: Todo) => {
     setShowModalDetail(true);
-    setTodoSelected(todo);
+    setTodoSelected(todo.id);
   };
 
   const onClickTask = (event: any, todo: Todo, task: TaskType) => {
@@ -55,7 +55,7 @@ export const App: React.FC = () => {
       <ModalTodo
         show={showModalDetail}
         setShow={setShowModalDetail}
-        Todo={todoSelected}
+        idTodo={todoSelected}
       />
       <Menu />
       <div className="contenedor_buttons">
