@@ -1,93 +1,124 @@
-import React, { useContext, useReducer } from "react";
-import { reducerAction, TodoList } from "../types/Todo.types";
+import React, {useContext, useReducer} from "react";
+import {reducerAction, TodoList} from "../types/Todo.types";
 
-const initialState:TodoList = {
-    todoItems:[{
-        id:0,
-        nombre:"Compras supermercado",
-        list:[{
-            id:0,body: "leche", estado: true
-            },{
-            id:1,body: "azucar", estado: true
-            },{
-            id:2,body: "te", estado: true
-            }
-        ]
+const initialState: TodoList = {
+  todoItems: [
+    {
+      id: 0,
+      nombre: "Compras supermercado",
+      list: [
+        {
+          id: 0,
+          body: "leche",
+          estado: true,
+        },
+        {
+          id: 1,
+          body: "azucar",
+          estado: true,
+        },
+        {
+          id: 2,
+          body: "te",
+          estado: true,
+        },
+      ],
     },
     {
-        id:1,
-        nombre:"prueba2",
-        list: [{id:0,body: "todo 2", estado: true}]
-    }]
+      id: 1,
+      nombre: "prueba2",
+      list: [{id: 0, body: "todo 2", estado: true}],
+    },
+  ],
 };
 
-function idGen(lastId:number){
-    return lastId+1
+function idGen(lastId: number) {
+  return lastId + 1;
 }
 
 const reducer = (state: TodoList, action: reducerAction) => {
-switch (action.type) {
+  switch (action.type) {
     case "addTodo":
-        action.Todo.id=idGen(state.todoItems.length-1)
-        return {
-            ...state,todoItems:[...state.todoItems, {...action.Todo}]
-            //añadir
-        };
+      action.Todo.id = idGen(state.todoItems.length - 1);
+      return {
+        ...state,
+        todoItems: [...state.todoItems, {...action.Todo}],
+        //añadir
+      };
     case "updateTodo":
-        return {
-            ...state,
-        };
-    case "deleteTodo":
-        const filteredTodo = state.todoItems.filter(todo => todo.id !== action.id);
-        return {
-            ...state,todoItems:filteredTodo
-        };
-    case "addTask":
-        const a=state.todoItems.findIndex((todo) => (todo.id === action.id))
-        action.Task.id=idGen(state.todoItems[a].list.length-1)
-        return {
-   //estado anterior, estado nuevo
-            ...state,todoItems:[...state.todoItems.slice(0, a), // separa la primera parte
-                { //se edita la parte encontrada
-                ...state.todoItems[a],//copia del estado anterior del todo
-                list: [//al estado nuevo se añade task
-                    ...state.todoItems[a].list,//copia del estado anterior de task
-                    {...action.Task}//se añade task nueva
-                ],
-            },//fin edicion
-            ...state.todoItems.slice(a+1)],// resto de la lista added
-    };
-    case "changeStateTask":
-        //immer can simplify this
-        const b=state.todoItems.findIndex((todo) => (todo.id === action.idTodo))
-        const c = state.todoItems[b].list.findIndex((task)=>(task.id===action.idTask))
-        return {
-   //estado anterior, estado nuevo
-            ...state,todoItems:[...state.todoItems.slice(0, b), // separa la primera parte
-                { //se edita la parte encontrada
-                ...state.todoItems[b],//copia del estado anterior del todo
-                list://al estado nuevo se añade task
-                    [...state.todoItems[b].list.slice(0, c), //separa primera parte de list
-                    {
-                        ...state.todoItems[b].list[c],//estado anterior de la task
-                        estado:!(state.todoItems[b].list[c].estado)//actualizado el estado
-                    },...state.todoItems[b].list.slice(c+1)//resto de task
-                ]
-            },//fin edicion tasks
-            ...state.todoItems.slice(b+1)],// resto de los Todos added
-    };
-    default:
-        throw new Error();
+      return {
+        ...state,
+      };
+    case "deleteTodo": {
+      const filteredTodo = state.todoItems.filter(
+        todo => todo.id !== action.id,
+      );
+      return {
+        ...state,
+        todoItems: filteredTodo,
+      };
     }
+    case "addTask": {
+      const a = state.todoItems.findIndex(todo => todo.id === action.id);
+      action.Task.id = idGen(state.todoItems[a].list.length - 1);
+      return {
+        //estado anterior, estado nuevo
+        ...state,
+        todoItems: [
+          ...state.todoItems.slice(0, a), // separa la primera parte
+          {
+            //se edita la parte encontrada
+            ...state.todoItems[a], //copia del estado anterior del todo
+            list: [
+              //al estado nuevo se añade task
+              ...state.todoItems[a].list, //copia del estado anterior de task
+              {...action.Task}, //se añade task nueva
+            ],
+          }, //fin edicion
+          ...state.todoItems.slice(a + 1),
+        ], // resto de la lista added
+      };
+    }
+    case "changeStateTask": {
+      //immer can simplify this
+      const b = state.todoItems.findIndex(todo => todo.id === action.idTodo);
+      const c = state.todoItems[b].list.findIndex(
+        task => task.id === action.idTask,
+      );
+      return {
+        //estado anterior, estado nuevo
+        ...state,
+        todoItems: [
+          ...state.todoItems.slice(0, b), // separa la primera parte
+          {
+            //se edita la parte encontrada
+            ...state.todoItems[b], //copia del estado anterior del todo
+            //al estado nuevo se añade task
+            list: [
+              ...state.todoItems[b].list.slice(0, c), //separa primera parte de list
+              {
+                ...state.todoItems[b].list[c], //estado anterior de la task
+                estado: !state.todoItems[b].list[c].estado, //actualizado el estado
+              },
+              ...state.todoItems[b].list.slice(c + 1), //resto de task
+            ],
+          }, //fin edicion tasks
+          ...state.todoItems.slice(b + 1),
+        ], // resto de los Todos added
+      };
+    }
+    default:
+      throw new Error();
+  }
 };
 
-const defaultDispatch: React.Dispatch<reducerAction> = () => initialState
+const defaultDispatch: React.Dispatch<reducerAction> = () => initialState;
 const TodoContext = React.createContext({
-    Todos: initialState,
-    dispatch: defaultDispatch, 
+  Todos: initialState,
+  dispatch: defaultDispatch,
 });
 
-const TodoContextProvider = ({ children }: any) => {
+const TodoContextProvider = ({children}: any) => {
   const [Todos, dispatch] = useReducer(reducer, initialState);
 
   return (
@@ -98,8 +129,8 @@ const TodoContextProvider = ({ children }: any) => {
 };
 
 const useTodo = () => {
-    const {Todos=initialState,dispatch} = useContext(TodoContext);
-    return {Todos,dispatch}
-}
+  const {Todos = initialState, dispatch} = useContext(TodoContext);
+  return {Todos, dispatch};
+};
 
-export {TodoContextProvider,useTodo};
+export {TodoContextProvider, useTodo};
