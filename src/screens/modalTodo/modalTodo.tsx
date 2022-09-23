@@ -6,6 +6,7 @@ import TaskCard from "../../components/TaskCard/taskCard";
 import Button from "src/components/Button/button";
 import Input from "src/components/Input/input";
 import { useTodo } from "src/hooks/Todo";
+import TaskCardMenu from "src/components/TaskCardWithMenu/taskCardMenu";
 
 type props = {
   show: boolean;
@@ -17,12 +18,7 @@ const ModalTodo: React.FC<props> = ({setShow, show, idTodo}) => {
   //const [name,setName]=useState("");
   const [task,setTask]=useState<TaskType>({id:0,body:"",estado:false});
   const [addTaskClicked,setAddTaskClicked]=useState(false);
-  const [a,setA]= useState("");
   const {Todos, dispatch} = useTodo();
-
-  useEffect(() =>(
-    console.log(a)
-  ),[a]);
 
   const onClickOutside = () => {
     setShow(false);
@@ -50,18 +46,23 @@ const ModalTodo: React.FC<props> = ({setShow, show, idTodo}) => {
     setAddTaskClicked(false);
   });
 
+  
+  
   return (
     <Modal title={Todos.todoItems[idTodo].nombre} onClickOutside={onClickOutside} show={show}>
       <div className="containerDescription">
         <div className="containerTasks">
           {Todos?.todoItems[idTodo].list.map((task, index) => (
-            <TaskCard //items de tareas
+            //edit task need to be here 
+            <TaskCardMenu //items de tareas
               key={index}
               task={task}
-              onClickTask={() => console.log(task)}
-              withCheck={false}>
+              withCheck={false}
+              idTodo={idTodo}
+              >
               {/*items in the right of task card */}
-            </TaskCard>
+              
+            </TaskCardMenu>
           ))}
           {addTaskClicked && 
             <div style={{display:"flex",height:"60px"}}>

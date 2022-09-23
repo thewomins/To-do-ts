@@ -107,6 +107,34 @@ const reducer = (state: TodoList, action: reducerAction) => {
         ], // resto de los Todos added
       };
     }
+    case "updateTask": {
+      //immer can simplify this
+      const b = state.todoItems.findIndex(todo => todo.id === action.idTodo);
+      const c = state.todoItems[b].list.findIndex(
+        task => task.id === action.idTask,
+      );
+      return {
+        //estado anterior, estado nuevo
+        ...state,
+        todoItems: [
+          ...state.todoItems.slice(0, b), // separa la primera parte
+          {
+            //se edita la parte encontrada
+            ...state.todoItems[b], //copia del estado anterior del todo
+            //al estado nuevo se añade task
+            list: [
+              ...state.todoItems[b].list.slice(0, c), //separa primera parte de list
+              {
+                ...state.todoItems[b].list[c], //estado anterior de la task
+                body: action.body, //actualizado el estado
+              },
+              ...state.todoItems[b].list.slice(c + 1), //resto de task
+            ],
+          }, //fin edicion tasks
+          ...state.todoItems.slice(b + 1),
+        ], // resto de los Todos added
+      };
+    }
     default:
       throw new Error();
   }
