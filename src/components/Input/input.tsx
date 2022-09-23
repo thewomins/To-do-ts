@@ -32,6 +32,7 @@ type props = {
   onChange?: any;
   style?: any;
   type: string;
+  value?: string;
 };
 
 //to change variables in css
@@ -49,6 +50,7 @@ const Input: React.FC<props> = ({
   onChange,
   style,
   color,
+  value,
 }) => {
   useEffect(() => {
     setColors(schemas(color));
@@ -64,6 +66,7 @@ const Input: React.FC<props> = ({
         id={id}
         onChange={e => onChange(e, id)}
         required
+        value={value}
       />
       <label htmlFor={id} className="form__label">
         {textoInput}
