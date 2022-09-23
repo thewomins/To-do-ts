@@ -4,9 +4,11 @@ import {TaskType} from "../../types/Todo.types";
 
 type props = {
   task: TaskType;
-  onClickTask: any;
+  onClickTask?: any;
   withCheck?: boolean;
   children?: any;
+  onMouseEnter?: any;
+  onMouseLeave?: any;
 };
 
 const TaskCard: React.FC<props> = ({
@@ -14,19 +16,25 @@ const TaskCard: React.FC<props> = ({
   task,
   onClickTask,
   withCheck = true,
+  onMouseEnter,
+  onMouseLeave
 }) => {
   return (
-    <div className="task" onClick={onClickTask}>
+    <div 
+      className="task" 
+      onClick={onClickTask}
+      onMouseEnter={onMouseEnter} 
+      onMouseLeave={onMouseLeave}
+      >
       <p>{task.body}</p>
-      {withCheck ? (
+      {withCheck && (
         task.estado ? (
           <p className="state">yes</p>
         ) : (
           <p className="state">nel</p>
         )
-      ) : (
-        children
       )}
+      {children}
     </div>
   );
 };
