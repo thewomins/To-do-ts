@@ -13,7 +13,7 @@ export const App: React.FC = () => {
   const {Todos, dispatch} = useTodo();
   const [showModalAdd, setShowModalAdd] = useState(false);
   const [showModalDetail, setShowModalDetail] = useState(false);
-  const [todoSelected, setTodoSelected] = useState<number>(0);
+  const [todoSelected, setTodoSelected] = useState<string>("0");
 
   useEffect(() => console.log("todo", Todos), [Todos]);
 
@@ -42,6 +42,7 @@ export const App: React.FC = () => {
   const onClickSubmit = (todo: Todo) => {
     console.info("click submit", todo);
     dispatch({type: "addTodo", Todo: todo});
+    setShowModalAdd(false);
   };
 
   return (

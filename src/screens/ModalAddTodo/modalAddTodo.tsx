@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useId, useState} from "react";
 import Modal from "../../components/Modal/modal";
 import {Todo, TaskType} from "../../types/Todo.types";
 import "./modalAddTodo.css";
 import Input from "../../components/Input/input";
 import Button from "../../components/Button/button";
+import { v4 as uuid } from "uuid";
 
 type props = {
   show: boolean;
@@ -20,19 +21,25 @@ const ModalAddTodo: React.FC<props> = ({
 }) => {
   const [name, setName] = useState("");
   const [task, setTask] = useState<TaskType[]>([
-    {id: 0, body: "", estado: false},
+    {id: "0", body: "", estado: false},
   ]);
 
   useEffect(() => {
     console.log("task", task);
   }, [task]);
 
+  useEffect(() => {
+    setName("");
+    setTask([{id: "0", body: "", estado: false}]);
+    console.log("reset modal");
+  }, [show]);
+
   const onClickOutside = () => {
     setShow(false);
   };
 
   const handleAddTask = () => {
-    setTask([...task, {id: task.length, body: "", estado: false}]);
+    setTask([...task, {id: uuid(), body: "", estado: false}]);
   };
 
   const handleDeleteTask = () => {
@@ -48,7 +55,7 @@ const ModalAddTodo: React.FC<props> = ({
     idTask: string,
   ) => {
     console.log(idTask);
-    const id = parseInt(idTask);
+    const id = task.findIndex(task => task.id === idTask);
     setTask([
       ...task.slice(0, id), // separa la primera parte
       {
@@ -87,7 +94,7 @@ const ModalAddTodo: React.FC<props> = ({
             <Input
               key={index}
               style={{margin: 5}}
-              id={element.id.toString()}
+              id={element.id}
               textoInput="Tarea"
               type="text"
               color="primary"
@@ -99,7 +106,7 @@ const ModalAddTodo: React.FC<props> = ({
           <Button textoButton="Cancelar" onClick={() => onClickOutside()} />
           <Button
             textoButton="Añadir"
-            onClick={() => onClickSubmit({id: 0, list: task, nombre: name})}
+            onClick={() => onClickSubmit({id: "0", list: task, nombre: name})}
           />
         </div>
       </div>

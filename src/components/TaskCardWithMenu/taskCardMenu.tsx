@@ -9,7 +9,7 @@ type props = {
   children: any;
   onClickTask?: any;
   withCheck?: boolean;
-  idTodo: number;
+  idTodo: string;
 };
 
 const TaskCardMenu: React.FC<props> = ({
@@ -39,18 +39,18 @@ const TaskCardMenu: React.FC<props> = ({
     setTaskHover(false);
   };
 
-  const onClickEditTask= ((taskId:number) => {
+  const onClickEditTask= ((taskId:string) => {
     setTaskBody(task.body);
     setTaskEditing(true);
     console.log("edit",taskId);
   });
 
-  const onClickDeleteTask= ((taskId:number) => {
+  const onClickDeleteTask= ((taskId:string) => {
     dispatch({type:"deleteTask", idTodo:idTodo, idTask: task.id});
     console.log("deleted",taskId);
   });
 
-  const onClickAddTask= ((taskId:number) => {
+  const onClickAddTask= ((taskId:string) => {
     dispatch({type:"updateTask", idTodo:idTodo, idTask: task.id, body:taskBody});
     console.log("add",taskId);
     stopEditing();

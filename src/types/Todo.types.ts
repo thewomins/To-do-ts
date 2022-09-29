@@ -1,11 +1,11 @@
 export type TaskType ={
-    id:number,
+    id: string,
     body: string, 
     estado: boolean
 }
 
 export type Todo = {
-    id:number,
+    id:string,
     nombre:string,
     list: TaskType[]
 }
@@ -16,9 +16,9 @@ export type TodoList = {
 
 export type reducerAction = 
     | {type: "addTodo" | "updateTodo"; Todo:Todo}
-    | {type: "deleteTodo"; id:number}
-    | {type: "addTask"; id:number; Task:TaskType}
-    | {type: "changeStateTask"; idTodo:number; idTask:number}
-    | {type: "updateTask"; idTodo:number; idTask:number; body:string}
-    | {type: "deleteTask"; idTodo:number; idTask:number};
+    | {type: "deleteTodo"; id:string}
+    | {type: "addTask"; id:string; Task:TaskType}
+    | {type: "changeStateTask"; idTodo:string; idTask:string}
+    | {type: "updateTask"; idTodo:string; idTask:string; body:string}
+    | {type: "deleteTask"; idTodo:string; idTask:string};
     
