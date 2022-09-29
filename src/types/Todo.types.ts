@@ -19,5 +19,6 @@ export type reducerAction =
     | {type: "deleteTodo"; id:number}
     | {type: "addTask"; id:number; Task:TaskType}
     | {type: "changeStateTask"; idTodo:number; idTask:number}
-    | {type: "updateTask"; idTodo:number; idTask:number; body:string};
+    | {type: "updateTask"; idTodo:number; idTask:number; body:string}
+    | {type: "deleteTask"; idTodo:number; idTask:number};
     
