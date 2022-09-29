@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Modal from "../../components/Modal/modal";
-import {TaskType, Todo} from "../../types/Todo.types";
+import {TaskType} from "../../types/Todo.types";
 import "./modalTodo.css";
-import TaskCard from "../../components/TaskCard/taskCard";
 import Button from "src/components/Button/button";
 import Input from "src/components/Input/input";
 import { useTodo } from "src/hooks/Todo";
@@ -11,14 +10,16 @@ import TaskCardMenu from "src/components/TaskCardWithMenu/taskCardMenu";
 type props = {
   show: boolean;
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
-  idTodo: number;
+  idTodo: string;
 };
 
 const ModalTodo: React.FC<props> = ({setShow, show, idTodo}) => {
   //const [name,setName]=useState("");
-  const [task,setTask]=useState<TaskType>({id:0,body:"",estado:false});
+  const [task,setTask]=useState<TaskType>({id:"0",body:"",estado:false});
   const [addTaskClicked,setAddTaskClicked]=useState(false);
   const {Todos, dispatch} = useTodo();
+  const todoPos = Todos.todoItems.findIndex(todo => todo.id === idTodo);
+  console.info("totalpos",todoPos,"todos", Todos,"id",idTodo);
 
   const onClickOutside = () => {
     setShow(false);
@@ -49,10 +50,10 @@ const ModalTodo: React.FC<props> = ({setShow, show, idTodo}) => {
   
   
   return (
-    <Modal title={Todos.todoItems[idTodo].nombre} onClickOutside={onClickOutside} show={show}>
+    <Modal title={Todos.todoItems[todoPos].nombre} onClickOutside={onClickOutside} show={show}>
       <div className="containerDescription">
         <div className="containerTasks">
-          {Todos?.todoItems[idTodo].list.map((task, index) => (
+          {Todos?.todoItems[todoPos].list.map((task, index) => (
             //edit task need to be here 
             <TaskCardMenu //items de tareas
               key={index}
