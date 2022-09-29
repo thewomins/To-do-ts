@@ -1,45 +1,47 @@
-import React, {useContext, useReducer} from "react";
+import React, {useContext, useId, useReducer} from "react";
 import {reducerAction, TodoList} from "../types/Todo.types";
+import { v4 as uuid } from "uuid";
 
 const initialState: TodoList = {
   todoItems: [
     {
-      id: 0,
+      id: "0",
       nombre: "Compras supermercado",
       list: [
         {
-          id: 0,
+          id: "0",
           body: "leche",
           estado: true,
         },
         {
-          id: 1,
+          id: "1",
           body: "azucar",
           estado: true,
         },
         {
-          id: 2,
+          id: "2",
           body: "te",
           estado: true,
         },
       ],
     },
     {
-      id: 1,
+      id: "1",
       nombre: "prueba2",
-      list: [{id: 0, body: "todo 2", estado: true}],
+      list: [{id: "0", body: "todo 2", estado: true}],
     },
   ],
 };
 
-function idGen(lastId: number) {
-  return lastId + 1;
+function idGen() {
+  //make logicarda
+  return uuid();
 }
 
 const reducer = (state: TodoList, action: reducerAction) => {
   switch (action.type) {
     case "addTodo":
-      action.Todo.id = idGen(state.todoItems.length - 1);
+      action.Todo.id = idGen();
       return {
         ...state,
         todoItems: [...state.todoItems, {...action.Todo}],
@@ -60,7 +62,7 @@ const reducer = (state: TodoList, action: reducerAction) => {
     }
     case "addTask": {
       const a = state.todoItems.findIndex(todo => todo.id === action.id);
-      action.Task.id = idGen(state.todoItems[a].list.length - 1);
+      action.Task.id = idGen();
       return {
         //estado anterior, estado nuevo
         ...state,
