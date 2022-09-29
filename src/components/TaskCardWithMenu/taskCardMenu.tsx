@@ -46,7 +46,8 @@ const TaskCardMenu: React.FC<props> = ({
   });
 
   const onClickDeleteTask= ((taskId:number) => {
-    console.log("delete",taskId);
+    dispatch({type:"deleteTask", idTodo:idTodo, idTask: task.id});
+    console.log("deleted",taskId);
   });
 
   const onClickAddTask= ((taskId:number) => {
