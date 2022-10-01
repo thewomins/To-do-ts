@@ -1,10 +1,12 @@
 import React, {Children} from "react";
 import "./taskCard.css";
 import {TaskType} from "../../types/Todo.types";
+import {MdOutlineCircle,MdCheckCircleOutline} from "react-icons/md";
 
 type props = {
   task: TaskType;
   onClickTask?: any;
+  className?: string;
   withCheck?: boolean;
   children?: any;
   onMouseEnter?: any;
@@ -17,11 +19,12 @@ const TaskCard: React.FC<props> = ({
   onClickTask,
   withCheck = true,
   onMouseEnter,
-  onMouseLeave
+  onMouseLeave,
+  className="task",
 }) => {
   return (
     <div 
-      className="task" 
+      className={className} 
       onClick={onClickTask}
       onMouseEnter={onMouseEnter} 
       onMouseLeave={onMouseLeave}
@@ -29,9 +32,9 @@ const TaskCard: React.FC<props> = ({
       <p>{task.body}</p>
       {withCheck && (
         task.estado ? (
-          <p className="state">yes</p>
+          <MdCheckCircleOutline className="state"/>
         ) : (
-          <p className="state">nel</p>
+          <MdOutlineCircle className="state" />
         )
       )}
       {children}
