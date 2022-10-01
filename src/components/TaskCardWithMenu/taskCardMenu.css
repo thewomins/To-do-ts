@@ -1,0 +1,59 @@
+
+.taskDetails{
+    display: flex;
+    flex-direction: row;
+    padding: 0 0 0 15px;
+    margin: 2px 5px;
+    border-radius: 100px;
+    user-select: none;
+}
+
+.taskDetails:hover{
+    background-color: gray;
+}
+
+.inputHandlerContainer{
+    display: flex;
+    height: 100%;
+    padding-right: 3px;
+    align-items: center;
+}
+
+.iconsContainer{
+    display: flex;
+    align-items: center;
+    margin-right: 3px;
+    margin-left: auto;
+}
+
+.divisor{
+    height: 90%;
+    width: 2px;
+    background-color: black;
+    margin:auto 2px;
+}
+
+.iconContainerR{
+    display:flex;
+    height:90%;
+    align-items: center;
+    border-radius: 0 30px 30px 0;
+}
+
+.iconContainerL{
+    display:flex;
+    height:90%;
+    align-items: center;
+    border-radius: 30px 0 0 30px;
+}
+
+.iconContainerR:hover ,.iconContainerL:hover {
+    cursor: pointer;
+    background-color: rgb(92, 90, 90);
+}
+
+.icon{
+    width:20px;
+    height:20px;
+    margin: auto 10px;
+}
