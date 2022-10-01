@@ -6,6 +6,7 @@ import Button from "src/components/Button/button";
 import Input from "src/components/Input/input";
 import { useTodo } from "src/hooks/Todo";
 import TaskCardMenu from "src/components/TaskCardWithMenu/taskCardMenu";
+import {MdAdd,MdCancel} from "react-icons/md";
 
 type props = {
   show: boolean;
@@ -74,17 +75,25 @@ const ModalTodo: React.FC<props> = ({setShow, show, idTodo}) => {
                 type="text"
                 color="primary"
                 onChange={onChangeTasks}
-              /> 
-              <div className="inputHandlerContainer">
-                <div 
-                  style={{backgroundColor:"green",width:20,height:20}}
-                  onClick={() => onClickAddTask()}
-                />
-                <div 
-                  style={{backgroundColor:"red",width:20,height:20}}
-                  onClick={() => stopAddingTasks()}
-                />
-              </div>
+                >
+                <div className="inputHandlerContainer">
+                  <div 
+                    className="iconContainerL" 
+                    style={{paddingLeft: "5px"}}
+                    onClick={()=>onClickAddTask()}
+                  >
+                  <MdAdd className="icon"/>
+                  </div>
+                  <div className="divisor"/>
+                  <div 
+                    className="iconContainerR"
+                    style={{paddingRight: "5px"}}
+                    onClick={()=>stopAddingTasks()}
+                    >
+                    <MdCancel className="icon"/>
+                  </div>
+                </div>
+              </Input>
             </div>
           }
           <div className="containerButtonModal">

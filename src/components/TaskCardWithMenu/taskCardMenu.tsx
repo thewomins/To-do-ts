@@ -2,7 +2,9 @@ import React, {useEffect, useState} from "react";
 import {TaskType} from "../../types/Todo.types";
 import TaskCard from "../../components/TaskCard/taskCard";
 import Input from "../Input/input";
+import "./taskCardMenu.css";
 import { useTodo } from "src/hooks/Todo";
+import {MdEdit,MdDeleteForever,MdAdd,MdCancel} from "react-icons/md";
 
 type props = {
   task: TaskType;
@@ -65,6 +67,7 @@ const TaskCardMenu: React.FC<props> = ({
     <div>
       {!taskEditing ?
         <TaskCard //items de tareas
+          className="taskDetails"
           task={task}
           onClickTask={onClickTask}
           withCheck={withCheck}
@@ -73,46 +76,59 @@ const TaskCardMenu: React.FC<props> = ({
           {/*items in the right of task card */}
           {taskHover && (
             <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                marginRight: 0,
-                marginLeft: "auto",
-              }}>
+              className="iconsContainer"
+              >
               <div
-                style={{backgroundColor: "yellow", width: 20, height: 20}}
+                className="iconContainerL"
+                style={{paddingLeft: "5px"}}
                 onClick={()=>onClickEditTask(task.id)}
-              />
+              >
+                <MdEdit className="icon"/>
+              </div>
+              <div className="divisor"/>
               <div
-                style={{backgroundColor: "red", width: 20, height: 20}}
+                className="iconContainerR"
+                style={{paddingRight: "5px"}}
                 onClick={()=>onClickDeleteTask(task.id)}
-              />
+                >
+                <MdDeleteForever className="icon"/>
+              </div>
             </div>
           )}
         </TaskCard>
       :
-      <div style={{display:"flex",height:"60px"}}>
+      <div style={{display:"flex",margin: "4px 5px 4px 5px",height:"50px"}}>
         <Input
-          style={{margin: 5,width:"100%"}}
+          style={{width:"100%"}}
           id={"added"}
           textoInput="Tarea"
           type="text"
           color="primary"
           onChange={onChangeTasks} 
           value={taskBody}
-        /> 
-        <div className="inputHandlerContainer">
+          >
           <div 
-            style={{backgroundColor:"green",width:20,height:20}}
-            onClick={()=>onClickAddTask(task.id)}
-          />
-          <div 
-            style={{backgroundColor:"red",width:20,height:20}}
-            onClick={()=>stopEditing()}
-          />
-        </div>
-      </div>
-      }
+            className="inputHandlerContainer" 
+            style={{backgroundColor: "white",borderRadius:"0 2px 0 0"}}
+            >
+            <div 
+              className="iconContainerL" 
+              style={{paddingLeft: "5px"}}
+              onClick={()=>onClickAddTask(task.id)}
+              >
+              <MdAdd className="icon"/>
+            </div>
+            <div className="divisor"/>
+            <div 
+              className="iconContainerR"
+              style={{paddingRight: "5px"}}
+              onClick={()=>stopEditing()}
+              >
+              <MdCancel className="icon"/>
+            </div>
+          </div>
+        </Input>
+      </div>}
     </div>
   );
 };

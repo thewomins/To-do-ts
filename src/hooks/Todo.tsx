@@ -11,24 +11,24 @@ const initialState: TodoList = {
         {
           id: "0",
           body: "leche",
-          estado: true,
+          estado: false,
         },
         {
           id: "1",
           body: "azucar",
-          estado: true,
+          estado: false,
         },
         {
           id: "2",
           body: "te",
-          estado: true,
+          estado: false,
         },
       ],
     },
     {
       id: "1",
       nombre: "prueba2",
-      list: [{id: "0", body: "todo 2", estado: true}],
+      list: [{id: "0", body: "todo 2", estado: false}],
     },
   ],
 };

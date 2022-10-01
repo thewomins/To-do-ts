@@ -41,11 +41,3 @@
 .containerTasks::-webkit-scrollbar-thumb:hover {
     background: #009eb3; 
 }
-
-.inputHandlerContainer{
-    display: flex;
-    height: 100%;
-    gap:10px;
-    margin:auto 10px auto 5px;
-    align-items: center;
-}

@@ -1,5 +1,5 @@
 import React from "react";
-import TaskItem from "../TaskCard/taskCard";
+import TaskCard from "../TaskCard/taskCard";
 import {Todo} from "../../types/Todo.types";
 import "./tareaCard.css";
 
@@ -19,10 +19,11 @@ const TareaCard: React.FC<props> = ({tarea, onClickCard, onClickTask}) => {
         </div>
         <div className="tasks_container">
           {tarea.list.map((task, index) => (
-            <TaskItem //items de tareas
+            <TaskCard //items de tareas
               key={index}
               task={task}
-              onClickTask={(e: any) => onClickTask(e, tarea, task)}></TaskItem>
+              onClickTask={(e: any) => onClickTask(e, tarea, task)}
+            />
           ))}
         </div>
       </div>
