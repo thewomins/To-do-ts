@@ -33,6 +33,7 @@ type props = {
   style?: any;
   type: string;
   value?: string;
+  children?: any;
 };
 
 //to change variables in css
@@ -51,6 +52,7 @@ const Input: React.FC<props> = ({
   style,
   color,
   value,
+  children,
 }) => {
   useEffect(() => {
     setColors(schemas(color));
@@ -71,6 +73,9 @@ const Input: React.FC<props> = ({
       <label htmlFor={id} className="form__label">
         {textoInput}
       </label>
+      <div className="childrenInput">
+        {children}
+      </div>
     </div>
   );
 };
