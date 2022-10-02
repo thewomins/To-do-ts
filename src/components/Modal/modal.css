@@ -27,10 +27,6 @@
     padding-bottom: 20px;
 }
 
-.titleModal{
-    font-weight: 700;
-}
-
 .containerComponentsModal{
     height: calc(100% - 90px);
     width: calc(100% - 55px);

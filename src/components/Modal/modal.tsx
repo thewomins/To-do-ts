@@ -23,9 +23,6 @@ const Modal: React.FC<props> = ({onClickOutside, title, children,small,style,sho
         className="containerModal"
         style={small? {height: "auto",width: "30%"}:{}}
         >
-        <div className="titleModal">
-          <h2>{title}</h2>
-        </div>
         <div className="containerComponentsModal">{children}</div>
       </div>
       <div className="exitModal" onClick={() => onClickOutside()}>
