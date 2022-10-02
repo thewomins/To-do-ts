@@ -69,6 +69,9 @@ const ModalAddTodo: React.FC<props> = ({
 
   return (
     <Modal title={title} onClickOutside={onClickOutside} show={show}>
+      <div className="titleModalAddTodo">
+        <h2>{title}</h2>
+      </div>
       <div className="containerDescription">
         <div>
           <Input

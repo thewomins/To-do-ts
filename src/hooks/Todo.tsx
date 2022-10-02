@@ -162,6 +162,23 @@ const reducer = (state: TodoList, action: reducerAction) => {
         ], // resto de los Todos added
       };
     }
+    case "changeTitle": {
+      //immer can simplify this
+      const b = state.todoItems.findIndex(todo => todo.id === action.idTodo);
+      return {
+        //estado anterior, estado nuevo
+        ...state,
+        todoItems: [
+          ...state.todoItems.slice(0, b), // separa la primera parte
+          {
+            //se edita la parte encontrada
+            ...state.todoItems[b], //copia del estado anterior del todo
+            nombre:action.title //cambia el titulo
+          }, //fin edicion tasks
+          ...state.todoItems.slice(b + 1),
+        ], // resto de los Todos added
+      };
+    }
     default:
       throw new Error();
   }
