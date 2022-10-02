@@ -41,3 +41,35 @@
 .containerTasks::-webkit-scrollbar-thumb:hover {
     background: #009eb3; 
 }
+
+.titleModalDetails{
+    display: flex;
+    font-weight: 700;
+    margin:5px 20px;
+    justify-content: center;
+}
+
+.titleModalDetails:hover .iconContainerTitle{
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+}
+
+.iconContainerTitle{
+    display: flex;
+    opacity: 0;
+    align-items: center;
+    margin:5px;
+    transition: opacity 0.5s ease-out;
+}
+
+.iconContainerMargin{
+    display:flex;
+    height:80%;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.iconContainerMargin:hover{
+    cursor: pointer;
+    background-color: gray;
+}
