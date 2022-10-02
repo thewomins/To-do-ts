@@ -50,7 +50,7 @@ export const App: React.FC = () => {
       <ModalAddTodo
         show={showModalAdd}
         setShow={setShowModalAdd}
-        title={"pepelanpof"}
+        title={"Añadir nuevo To-do"}
         onClickSubmit={onClickSubmit}
       />
       <ModalTodo
