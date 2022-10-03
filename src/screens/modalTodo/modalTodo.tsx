@@ -166,12 +166,12 @@ const ModalTodo: React.FC<props> = ({setShow, show, idTodo}) => {
               </Input>
             </div>
           }
-          <div className="containerButtonModal">
-            <Button
-              textoButton="Añadir tarea"
-              onClick={() => handleAddTask()}
-            />
-          </div>
+        </div>
+        <div className="containerButtonModal">
+          <Button
+            textoButton="Añadir tarea"
+            onClick={() => handleAddTask()}
+          />
         </div>
       </div>
     </Modal>
