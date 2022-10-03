@@ -1,8 +1,8 @@
 {
   "name": "to-do-ts",
-  "version": "0.1.0",
+  "version": "0.9.0",
   "private": true,
-  "homepage": "https://to-do.github.io",
+  "homepage": "https://thewomins.github.io/To-do-ts/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
