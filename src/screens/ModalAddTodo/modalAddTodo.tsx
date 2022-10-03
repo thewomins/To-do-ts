@@ -68,7 +68,7 @@ const ModalAddTodo: React.FC<props> = ({
   };
 
   return (
-    <Modal title={title} onClickOutside={onClickOutside} show={show}>
+    <Modal onClickOutside={onClickOutside} show={show}>
       <div className="titleModalAddTodo">
         <h2>{title}</h2>
       </div>
@@ -108,7 +108,7 @@ const ModalAddTodo: React.FC<props> = ({
         <div className="containerButtonActionModal">
           <Button textoButton="Cancelar" onClick={() => onClickOutside()} />
           <Button
-            textoButton="Añadir"
+            textoButton="Añadir To-do"
             onClick={() => onClickSubmit({id: "0", list: task, nombre: name})}
           />
         </div>

@@ -6,7 +6,7 @@ import Button from "src/components/Button/button";
 import Input from "src/components/Input/input";
 import { useTodo } from "src/hooks/Todo";
 import TaskCardMenu from "src/components/TaskCardWithMenu/taskCardMenu";
-import {MdAdd,MdCancel,MdDeleteForever,MdEdit,} from "react-icons/md";
+import {MdAdd,MdCancel,MdEdit} from "react-icons/md";
 
 type props = {
   show: boolean;
@@ -71,22 +71,28 @@ const ModalTodo: React.FC<props> = ({setShow, show, idTodo}) => {
   });
   
   const onClickAddTitle= ((TodoId:string) => {
-    dispatch({type:"changeTitle", idTodo:idTodo, title:title});
+    dispatch({type:"changeTitle", idTodo:TodoId, title:title});
     console.log("changeTitle",TodoId, title);
     stopEditingTitle();
   });
+
+  const onClickDeleteTodo= ((TodoId:string) => {
+    dispatch({type:"deleteTodo", id:TodoId});
+    console.log("deleted Todo",TodoId);
+    setShow(false);
+  });
   
   return (
-    <Modal onClickOutside={onClickOutside} show={show}>
+    <Modal onClickOutside={onClickOutside} show={show} onClickDeleteTodo={onClickDeleteTodo}>
       {!editTitleMode ?
       <div className="titleModalDetails">
-        <h2 style={{alignSelf:"center"}}>{Todos.todoItems[todoPos].nombre}</h2>
+        <h2 style={{alignSelf:"center"}}>{Todos.todoItems[todoPos]?.nombre}</h2>
         <div
           className="iconContainerTitle"
           >
           <div
             className="iconContainerMargin"
-            onClick={()=>onClickEditTitle(Todos.todoItems[todoPos].nombre)}
+            onClick={()=>onClickEditTitle(Todos.todoItems[todoPos]?.nombre)}
           >
             <MdEdit className="icon"/>
           </div>
@@ -106,7 +112,7 @@ const ModalTodo: React.FC<props> = ({setShow, show, idTodo}) => {
             <div 
               className="iconContainerL" 
               style={{paddingLeft: "5px"}}
-              onClick={()=>onClickAddTitle(Todos.todoItems[todoPos].id)}
+              onClick={()=>onClickAddTitle(Todos.todoItems[todoPos]?.id)}
               >
               <MdAdd className="icon"/>
             </div>
@@ -124,7 +130,7 @@ const ModalTodo: React.FC<props> = ({setShow, show, idTodo}) => {
       }
       <div className="containerDescription">
         <div className="containerTasks">
-          {Todos?.todoItems[todoPos].list.map((task, index) => (
+          {Todos?.todoItems[todoPos]?.list.map((task, index) => (
             //edit task need to be here 
             <TaskCardMenu //items de tareas
               key={index}

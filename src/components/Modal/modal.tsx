@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from "react";
-import { MdClose } from "react-icons/md";
+import { MdClose,MdDeleteForever } from "react-icons/md";
 import "./modal.css";
 
 type props={
   children :any
-  title? : string
   onClickOutside?:any
   style?:any
   show:boolean
   small?:boolean
+  onClickDeleteTodo?:any
 }
 
-const Modal: React.FC<props> = ({onClickOutside, title, children,small,style,show}) => {
+const Modal: React.FC<props> = ({onClickOutside, children,small,style,show,onClickDeleteTodo}) => {
   return (
     <div 
         className="outsideModal" 
@@ -29,6 +29,11 @@ const Modal: React.FC<props> = ({onClickOutside, title, children,small,style,sho
       <div className="exitModal" onClick={() => onClickOutside()}>
         <MdClose className="icon"/>
       </div>
+      {onClickDeleteTodo && 
+        <div className="deleteTodo" onClick={() => onClickDeleteTodo()}>
+          <MdDeleteForever className="icon"/>
+        </div>
+}
     </div>
   );
 };
