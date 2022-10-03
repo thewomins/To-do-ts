@@ -24,6 +24,23 @@
     transition: background-color 0.2s ease-in;
 }
 
+.deleteTodo{
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    z-index: 2;
+    height: 40px;
+    border-radius: 15px 0 15px 0;
+    transform: translateY(-276px) translateX(-526px);
+    transition: background-color 0.2s ease-out;
+}
+
+.deleteTodo:hover{
+    color:rgb(255, 42, 42);
+    background-color: gray;
+    transition: background-color color 0.2s ease-in;
+}
+
 .containerModal{
     z-index: 1;
     height: 90%;
