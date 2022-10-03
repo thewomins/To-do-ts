@@ -18,15 +18,14 @@
 }
 
 .title_container{
-    margin: 10px 15px;
+    margin: 0px 15px;
+    padding: 15px 10px;
     border-bottom: 1px solid red;
 }
 
 .title{
     width: 100%;
     margin:0;
-    padding-bottom:2% ;
-    padding-left: 2%;
 }
 
 .tasks_container{
