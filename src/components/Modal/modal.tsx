@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import { MdClose } from "react-icons/md";
 import "./modal.css";
 
 type props={
@@ -26,7 +27,7 @@ const Modal: React.FC<props> = ({onClickOutside, title, children,small,style,sho
         <div className="containerComponentsModal">{children}</div>
       </div>
       <div className="exitModal" onClick={() => onClickOutside()}>
-        x
+        <MdClose className="icon"/>
       </div>
     </div>
   );
