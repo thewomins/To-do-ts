@@ -19,6 +19,11 @@ const Modal: React.FC<props> = ({onClickOutside, children,small,style,show,onCli
         style={{...style,display:show? "flex":"none"}}
         hidden={!show}
       >
+      {onClickDeleteTodo && 
+        <div className="deleteTodo" onClick={() => onClickDeleteTodo()}>
+          <MdDeleteForever className="icon"/>
+        </div>
+      }
       <div 
         onClick={e => e.stopPropagation()} 
         className="containerModal"
@@ -29,11 +34,7 @@ const Modal: React.FC<props> = ({onClickOutside, children,small,style,show,onCli
       <div className="exitModal" onClick={() => onClickOutside()}>
         <MdClose className="icon"/>
       </div>
-      {onClickDeleteTodo && 
-        <div className="deleteTodo" onClick={() => onClickDeleteTodo()}>
-          <MdDeleteForever className="icon"/>
-        </div>
-}
+      
     </div>
   );
 };
