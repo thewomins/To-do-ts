@@ -1,0 +1,26 @@
+:root {
+    --primary : "#355ab0";
+    --onPrimary : "#ffffff";
+    --primaryContainer : "#dae2ff";
+    --onPrimaryContainer : "#001848";
+    --secundary : "#585e71";
+    --onSecundary : "#ffffff";
+    --secundaryContainer : "#dce2f9";
+    --onSecundaryContainer : "#151b2c";
+    --tertiary : "#735471";
+    --onTertiaty : "#ffffff";
+    --tertiaryContainer : "#fed7f9";
+    --onTertiaryContainer : "#2b122b";
+    --error : "#ba1a1a";
+    --onError : "#ffffff";
+    --errorContainer : "#ffdad6";
+    --onErrorContainer : "#410002";
+    --background : "#fefbff";
+    --onBackground : "#1b1b1f";
+    --surface : "#fefbff";
+    --onSurface : "#1b1b1f";
+    --outline : "#757780";
+    --surfaceVariant : "#e1e2ec";
+    --onSurfaceVariant : "#45464f";
+    --textNoFocusColor : rgba(0, 0, 0, 0.3);
+}
