@@ -31,7 +31,7 @@
     z-index: 2;
     height: 40px;
     border-radius: 15px 0 15px 0;
-    transform: translateY(-276px) translateX(-526px);
+    transform: translateY(-276px) translateX(40px);
     transition: background-color 0.2s ease-out;
 }
 
@@ -53,4 +53,10 @@
 .containerComponentsModal{
     display: flex;
     flex-direction: column;
+}
+
+@media screen and (max-width:700px) {
+    .containerModal{
+        width:90%;
+    }
 }
