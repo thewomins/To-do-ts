@@ -1,12 +1,24 @@
-
 .container {
     display: flex;
-    flex-direction: row;
     background-color: #eee;
     margin: auto 0;
     min-height: 50px;
     align-items: center;
     padding: 0 20px;
     background-color: var(--surface);
+    color: var(--onSurface);
+}
+
+.nightModeContainer {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 0;
+    gap: 5px;
+}
+
+.iconNight {
+    height: 20px;
+    width: 20px;
     color: var(--onSurface);
 }
