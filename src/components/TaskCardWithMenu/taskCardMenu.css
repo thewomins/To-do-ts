@@ -1,4 +1,3 @@
-
 .taskDetails{
     display: flex;
     flex-direction: row;
@@ -6,10 +5,13 @@
     margin: 2px 5px;
     border-radius: 100px;
     user-select: none;
+    transition: all 0.2s ease-out;
+    color: var(--onBackground);
 }
 
 .taskDetails:hover{
-    background-color: gray;
+    background-color: var(--opacityHover);
+    transition: all 0.2s ease-in;
 }
 
 .inputHandlerContainer{
@@ -29,8 +31,9 @@
 .divisor{
     height: 90%;
     width: 2px;
-    background-color: black;
+    background-color: var(--outline);
     margin:auto 2px;
+    transition: all 0.2s ease-in-out;
 }
 
 .iconContainerR{
@@ -38,6 +41,7 @@
     height:90%;
     align-items: center;
     border-radius: 0 30px 30px 0;
+    transition: all 0.3s ease-out;
 }
 
 .iconContainerL{
@@ -45,15 +49,22 @@
     height:90%;
     align-items: center;
     border-radius: 30px 0 0 30px;
+    transition: all 0.2s ease-out;
 }
 
 .iconContainerR:hover ,.iconContainerL:hover {
     cursor: pointer;
-    background-color: rgb(92, 90, 90);
+    background-color: var(--primary);
+    transition: all 0.2s ease-in;
+}
+
+.iconContainerR:hover .icon,.iconContainerL:hover .icon{
+    color: var(--onPrimary);
 }
 
 .icon{
     width:20px;
     height:20px;
     margin: auto 10px;
+    color: var(--onBackground);
 }

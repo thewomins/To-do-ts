@@ -3,7 +3,7 @@ import "./button.css";
 
 type props = {
   textoButton: string;
-  color?: string;
+  color?: "primary"|"secondary";
   onClick: any;
 };
 
@@ -12,9 +12,12 @@ const Button: React.FC<props> = ({
   onClick,
   color,
 }) => {
+
   return (
-    <div className="button" style={{backgroundColor: color}} onClick={onClick}>
-      <p className="text">{textoButton}</p>
+    <div className={color ? ("button btn_"+color) : "button" } style={{backgroundColor: color}} onClick={onClick}>
+      <div className="layerOpacityButton">
+        <p className="text">{textoButton}</p>
+      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useLayoutEffect, useState} from "react";
 import "./index.css";
 import TareaCard from "./../../components/TareaCard/tareaCard";
 import Menu from "./../../components/menu/menu";
@@ -8,12 +8,30 @@ import ModalAddTodo from "../ModalAddTodo/modalAddTodo";
 
 import {TaskType, Todo} from "./../../types/Todo.types";
 import ModalTodo from "../modalTodo/modalTodo";
+import {useTheme} from "src/hooks/Theme";
 
 export const App: React.FC = () => {
   const {Todos, dispatch} = useTodo();
   const [showModalAdd, setShowModalAdd] = useState(false);
   const [showModalDetail, setShowModalDetail] = useState(false);
   const [todoSelected, setTodoSelected] = useState<string>("0");
+  const {theme, dispatchTheme} = useTheme();
+
+  useEffect(() => console.log("theme", theme), [theme]);
+
+  useLayoutEffect(() => {
+    //dispatchTheme({type:"changeThemeTo", themeName: "dark"});
+    const modeMe = (e: any) => {
+      dispatchTheme({type:"changeThemeTo", themeName: e.matches ? "dark" : "light"});
+    };
+    modeMe(window.matchMedia("(prefers-color-scheme: dark)"));
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", modeMe);
+    return window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .removeEventListener("change", modeMe);
+  }, []);
 
   useEffect(() => console.log("todo", Todos), [Todos]);
 
@@ -45,6 +63,10 @@ export const App: React.FC = () => {
     setShowModalAdd(false);
   };
 
+  const onChangeCheck=(event:any)=>{
+    dispatchTheme({type:"changeThemeTo", themeName: event.target.checked ? "dark" : "light"});
+  };
+
   return (
     <div>
       <ModalAddTodo
@@ -58,9 +80,16 @@ export const App: React.FC = () => {
         setShow={setShowModalDetail}
         idTodo={todoSelected}
       />
-      <Menu />
+      <Menu 
+        state={theme === "dark"? false: true}
+        onChangeCheck={onChangeCheck}
+      />
       <div className="contenedor_buttons">
-        <Button textoButton="Añadir nuevo To-do" onClick={() => onClickAdd()} />
+        <Button
+          textoButton="Añadir nuevo To-do"
+          color="secondary"
+          onClick={() => onClickAdd()}
+        />
       </div>
       <div className="contenedor_tareas">
         {Todos.todoItems.map((Todo, index) => (

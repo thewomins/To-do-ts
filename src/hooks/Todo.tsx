@@ -1,4 +1,4 @@
-import React, {useContext, useId, useReducer} from "react";
+import React, {useContext, useReducer} from "react";
 import {reducerAction, TodoList} from "../types/Todo.types";
 import { v4 as uuid } from "uuid";
 
@@ -184,13 +184,15 @@ const reducer = (state: TodoList, action: reducerAction) => {
   }
 };
 
-const defaultDispatch: React.Dispatch<reducerAction> = () => initialState;
-const TodoContext = React.createContext({
+const TodoContext = React.createContext<{
+  Todos:TodoList,
+  dispatch: React.Dispatch<reducerAction>,
+}>({
   Todos: initialState,
-  dispatch: defaultDispatch,
+  dispatch: () => initialState,
 });
 
-const TodoContextProvider = ({children}: any) => {
+const TodoContextProvider:React.FC<{children:React.ReactNode}> = ({children}) => {
   const [Todos, dispatch] = useReducer(reducer, initialState);
 
   return (

@@ -4,15 +4,18 @@ import "./index.css";
 import App from "./screens/index/index";
 import reportWebVitals from "./reportWebVitals";
 import {TodoContextProvider} from "./hooks/Todo";
+import {ThemeContextProvider} from "./hooks/Theme";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
 );
 root.render(
   <React.StrictMode>
-    <TodoContextProvider>
-      <App />
-    </TodoContextProvider>
+    <ThemeContextProvider>
+      <TodoContextProvider>
+        <App />
+      </TodoContextProvider>
+    </ThemeContextProvider>
   </React.StrictMode>,
 );
 

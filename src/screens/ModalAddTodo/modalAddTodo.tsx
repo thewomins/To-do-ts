@@ -84,10 +84,12 @@ const ModalAddTodo: React.FC<props> = ({
           <div className="containerButtonModal">
             <Button
               textoButton="Borrar tarea"
+              color="secondary"
               onClick={() => handleDeleteTask()}
             />
             <Button
               textoButton="Añadir tarea"
+              color="primary"
               onClick={() => handleAddTask()}
             />
           </div>
@@ -106,9 +108,14 @@ const ModalAddTodo: React.FC<props> = ({
           ))}
         </div>
         <div className="containerButtonActionModal">
-          <Button textoButton="Cancelar" onClick={() => onClickOutside()} />
+          <Button 
+            textoButton="Cancelar" 
+            color="secondary"
+            onClick={() => onClickOutside()} 
+          />
           <Button
             textoButton="Añadir To-do"
+            color="primary"
             onClick={() => onClickSubmit({id: "0", list: task, nombre: name})}
           />
         </div>

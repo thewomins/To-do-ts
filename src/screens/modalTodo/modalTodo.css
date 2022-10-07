@@ -46,14 +46,15 @@
     display: flex;
     font-weight: 700;
     justify-content: center;
-    background-color: rgba(206, 206, 206, 0.288);
+    background-color: var(--surface);
     border-radius: 15px 15px 0 0;
-    border-bottom: 1.5px solid red;
+    border-bottom: 1.5px solid var(--outlineVariant);
+    color: var(--onSurface);
 }
 
 .titleModalDetails:hover .iconContainerTitle{
     opacity: 1;
-    transition: opacity 0.5s ease-in;
+    transition: all 0.2s ease-in;
 }
 
 .iconContainerTitle{
@@ -61,17 +62,25 @@
     opacity: 0;
     align-items: center;
     margin:5px;
-    transition: opacity 0.5s ease-out;
+    transition: all 0.2s ease-out;
 }
 
 .iconContainerMargin{
     display:flex;
-    height:80%;
+    height:60%;
     align-items: center;
     border-radius: 10px;
+    transition: all 0.2s ease-in;
 }
 
 .iconContainerMargin:hover{
     cursor: pointer;
-    background-color: gray;
+    background-color: var(--primary);
+    color: var(--onPrimary);
+    transition: all 0.2s ease-in;
+}
+
+.iconContainerMargin:hover .icon{
+    color: var(--onPrimary);
+    transition: all 0.2s ease-out;
 }

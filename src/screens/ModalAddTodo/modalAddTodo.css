@@ -9,16 +9,13 @@
 .containerButtonModal{
     display: flex;
     flex-direction: row;
-    width: 100%;
-    margin:5px;
     justify-content: space-evenly;
 }
 
 .containerButtonActionModal{
     display: flex;
-    margin:auto auto 0 auto;
+    margin:auto 0px;
     flex-direction: row;
-    width: 100%;
     justify-content: space-evenly;
 }
 
@@ -54,7 +51,8 @@
     display: flex;
     font-weight: 700;
     justify-content: center;
-    background-color: rgba(206, 206, 206, 0.288);
+    background-color: var(--surface);
     border-radius: 15px 15px 0 0;
-    border-bottom: 1.5px solid red;
+    border-bottom: 1.5px solid var(--outlineVariant);
+    color: var(--onSurface);
 }

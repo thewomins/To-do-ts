@@ -5,7 +5,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: var(--shadowTransparency);
 }
 
 .exitModal{
@@ -14,13 +14,18 @@
     cursor: pointer;
     z-index: 2;
     height: 40px;
-    border-radius: 0 15px 0 15px;
+    border-radius: 0 12px 0 12px;
     transform: translateY(-276px) translateX(-40px);
     transition: background-color 0.2s ease-out;
 }
 
 .exitModal:hover{
-    background-color: gray;
+    background-color: var(--primary);
+    transition: background-color 0.2s ease-in;
+}
+
+.exitModal:hover .icon{
+    color: var(--onPrimary);
     transition: background-color 0.2s ease-in;
 }
 
@@ -30,15 +35,20 @@
     cursor: pointer;
     z-index: 2;
     height: 40px;
-    border-radius: 15px 0 15px 0;
+    border-radius: 12px 0 12px 0;
     transform: translateY(-276px) translateX(40px);
     transition: background-color 0.2s ease-out;
 }
 
 .deleteTodo:hover{
-    color:rgb(255, 42, 42);
-    background-color: gray;
+    color:var(--onPrimary);
+    background-color: var(--primary);
     transition: background-color color 0.2s ease-in;
+}
+
+.deleteTodo:hover .icon{
+    color: var(--onPrimary);
+    transition: background-color 0.2s ease-in;
 }
 
 .containerModal{
@@ -47,7 +57,7 @@
     width: 50%;
     align-items: center;
     border-radius: 15px;
-    background-color: rgb(235, 233, 233);
+    background-color: var(--background);
 }
 
 .containerComponentsModal{

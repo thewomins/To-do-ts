@@ -6,15 +6,22 @@
     margin: 0 5px;
     border-radius: 100px;
     user-select: none;
+    transition: all 0.2s ease-out;
+    color: var(--onBackground);
 }
 
 .task:hover{
     cursor: pointer;
-    background-color: gray;
+    background-color: var(--opacityHover);
+    transition: all 0.2s ease-in;
 }
 
 .state{
     height: 20px;
     width: 20px;
     margin: auto 0 auto auto;
+}
+
+.active{
+    color:var(--primary);
 }

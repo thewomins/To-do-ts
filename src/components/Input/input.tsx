@@ -36,7 +36,7 @@ type props = {
   children?: any;
 };
 
-//to change variables in css
+//change color variables in css
 function setColors(colorSchema: schema) {
   Object.entries(colorSchema).forEach(element => {
     console.log(element[0], element[1]);
