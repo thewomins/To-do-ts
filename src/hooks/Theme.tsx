@@ -65,7 +65,7 @@ const initialState:TThemesAvailable = "light" ;
 //por cada propiedad en theme setea la propiedad
 function setTheme(Theme: TTheme) {
   Object.entries(Theme).forEach(element => {
-    console.log(element[0], element[1]);
+    //console.log(element[0], element[1]);
     document.documentElement.style.setProperty("--" + element[0], element[1]);
   });
 }

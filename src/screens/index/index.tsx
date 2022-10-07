@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useLayoutEffect, useState} from "react";
 import "./index.css";
 import TareaCard from "./../../components/TareaCard/tareaCard";
 import Menu from "./../../components/menu/menu";
@@ -19,7 +19,7 @@ export const App: React.FC = () => {
 
   useEffect(() => console.log("theme", theme), [theme]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     //dispatchTheme({type:"changeThemeTo", themeName: "dark"});
     const modeMe = (e: any) => {
       dispatchTheme({type:"changeThemeTo", themeName: e.matches ? "dark" : "light"});
@@ -63,6 +63,10 @@ export const App: React.FC = () => {
     setShowModalAdd(false);
   };
 
+  const onChangeCheck=(event:any)=>{
+    dispatchTheme({type:"changeThemeTo", themeName: event.target.checked ? "dark" : "light"});
+  };
+
   return (
     <div>
       <ModalAddTodo
@@ -76,7 +80,10 @@ export const App: React.FC = () => {
         setShow={setShowModalDetail}
         idTodo={todoSelected}
       />
-      <Menu />
+      <Menu 
+        state={theme === "dark"? false: true}
+        onChangeCheck={onChangeCheck}
+      />
       <div className="contenedor_buttons">
         <Button
           textoButton="Añadir nuevo To-do"
