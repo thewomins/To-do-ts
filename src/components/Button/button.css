@@ -1,12 +1,31 @@
+.btn_primary{
+    background-color: var(--primary);
+    color: var(--onPrimary);
+}
+
+.btn_secondary{
+    background-color: var(--secundaryContainer);
+    color: var(--onSecundaryContainer);
+}
 
 .button{
-    padding: 10px 12px;
-    background-color: #eee;
     border-radius: 15px;
     font-weight: 700;
     cursor: pointer;
     user-select: none;
 }
+
+.layerOpacityButton{
+    padding: 10px 12px;
+    border-radius: 15px;
+    transition: all 0.2s ease-out;
+}
+
+.button:hover .layerOpacityButton{
+    background-color: var(--opacityHover);
+    transition: all 0.2s ease-in;
+}
+
 .text{
     margin: 0;
 }

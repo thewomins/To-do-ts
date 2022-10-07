@@ -32,7 +32,7 @@ const TaskCard: React.FC<props> = ({
       <p>{task.body}</p>
       {withCheck && (
         task.estado ? (
-          <MdCheckCircleOutline className="state"/>
+          <MdCheckCircleOutline className="state active"/>
         ) : (
           <MdOutlineCircle className="state" />
         )

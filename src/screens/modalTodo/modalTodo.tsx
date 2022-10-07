@@ -76,9 +76,9 @@ const ModalTodo: React.FC<props> = ({setShow, show, idTodo}) => {
     stopEditingTitle();
   });
 
-  const onClickDeleteTodo= ((TodoId:string) => {
-    dispatch({type:"deleteTodo", id:TodoId});
-    console.log("deleted Todo",TodoId);
+  const onClickDeleteTodo= (() => {
+    dispatch({type:"deleteTodo", id:idTodo});
+    console.log("deleted Todo",idTodo);
     setShow(false);
   });
   
@@ -176,6 +176,7 @@ const ModalTodo: React.FC<props> = ({setShow, show, idTodo}) => {
         <div className="containerButtonModal">
           <Button
             textoButton="Añadir tarea"
+            color="primary"
             onClick={() => handleAddTask()}
           />
         </div>

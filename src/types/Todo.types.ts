@@ -47,7 +47,9 @@ export type TTheme = {
   outline: string;
   surfaceVariant: string;
   onSurfaceVariant: string;
-  textNoFocusColor: string;
+  shadow: string;
+  shadowTransparency: string;
+  opacityHover: string;
 };
 
 export type TThemesAvailable = "light" | "dark";

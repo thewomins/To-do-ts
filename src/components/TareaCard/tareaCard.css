@@ -1,15 +1,17 @@
 .card_tarea{
-    border: 1px solid #eee;
+    border: 1px solid var(--outline);
     width: 48%;
     min-width: 300px;
     margin: 5px;
     border-radius: 15px;
     height: fit-content;
+    color: var(--onBackground);
+    background-color: var(--background);
 }
 
 .card_tarea:hover{
     cursor: pointer;
-    box-shadow: 1px 1px 3px gray;
+    box-shadow: 1px 1px 3px var(--shadow);
 }
 
 .elements_container{
@@ -20,7 +22,8 @@
 .title_container{
     margin: 0px 15px;
     padding: 15px 10px;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid var(--outlineVariant);
+    color: var(--onBackground);
 }
 
 .title{

@@ -8,7 +8,7 @@
 .input-field-fill{
     height: 50px;
     margin:auto auto;
-    background-color: var(--bgColorInput);
+    background-color: var(--surfaceVariant);
     border-radius: 4px 4px 0 0;
 }
 
@@ -27,10 +27,11 @@
     padding-top: 2.8vh;
     background: transparent;
     transition: border-color 0.2s; 
+    color: var(--onSurfaceVariant);
 }
 
 .form__field:focus{
-    border-bottom: 2px solid var(--enfasisColorInput);
+    border-bottom: 2px solid var(--primary);
 }
 
 /*si esta en focus y el placeholder no se debe mostrar*/
@@ -38,14 +39,20 @@
     position: relative;
     z-index: 2;
     display: block;
-    color: var(--textFocusColor);
-    transform: translateY(-50px);
+    transform: translateY(-53px);
     transition: transform 0.3s;
+}
+
+/*color del texto si esta en focus*/
+.form__field:focus ~ .form__label{
+    color: var(--onSurfaceVariant);
+    opacity: 0.3;
+    user-select: none;
 }
 
 /*color del texto si no esta en focus*/
 .form__field:not(:focus) ~ .form__label{
-    color: var(--textNoFocusColor);
+    color: var(--onSurfaceVariant);
     user-select: none;
 }
 
@@ -55,9 +62,8 @@
     position: relative;
     display: block;
     margin-left: 2%;
-    transform: translateY(-35px);
+    transform: translateY(-40px);
     font-size:1.2rem;
-    color: var(--textNoFocusColor);
     font-weight: 700;
     letter-spacing: 0.5px;
     transition: transform 0.3s;

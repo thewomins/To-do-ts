@@ -8,12 +8,30 @@ import ModalAddTodo from "../ModalAddTodo/modalAddTodo";
 
 import {TaskType, Todo} from "./../../types/Todo.types";
 import ModalTodo from "../modalTodo/modalTodo";
+import {useTheme} from "src/hooks/Theme";
 
 export const App: React.FC = () => {
   const {Todos, dispatch} = useTodo();
   const [showModalAdd, setShowModalAdd] = useState(false);
   const [showModalDetail, setShowModalDetail] = useState(false);
   const [todoSelected, setTodoSelected] = useState<string>("0");
+  const {theme, dispatchTheme} = useTheme();
+
+  useEffect(() => console.log("theme", theme), [theme]);
+
+  useEffect(() => {
+    //dispatchTheme({type:"changeThemeTo", themeName: "dark"});
+    const modeMe = (e: any) => {
+      dispatchTheme({type:"changeThemeTo", themeName: e.matches ? "dark" : "light"});
+    };
+    modeMe(window.matchMedia("(prefers-color-scheme: dark)"));
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", modeMe);
+    return window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .removeEventListener("change", modeMe);
+  }, []);
 
   useEffect(() => console.log("todo", Todos), [Todos]);
 
@@ -60,7 +78,11 @@ export const App: React.FC = () => {
       />
       <Menu />
       <div className="contenedor_buttons">
-        <Button textoButton="Añadir nuevo To-do" onClick={() => onClickAdd()} />
+        <Button
+          textoButton="Añadir nuevo To-do"
+          color="secondary"
+          onClick={() => onClickAdd()}
+        />
       </div>
       <div className="contenedor_tareas">
         {Todos.todoItems.map((Todo, index) => (

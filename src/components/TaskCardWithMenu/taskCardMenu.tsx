@@ -109,7 +109,7 @@ const TaskCardMenu: React.FC<props> = ({
           >
           <div 
             className="inputHandlerContainer" 
-            style={{backgroundColor: "white",borderRadius:"0 2px 0 0"}}
+            style={{backgroundColor: "var(--surfaceVariant)",borderRadius:"0 2px 0 0"}}
             >
             <div 
               className="iconContainerL" 
