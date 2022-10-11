@@ -10,25 +10,39 @@ const initialState: TodoList = {
       list: [
         {
           id: "0",
-          body: "leche",
+          body: "Leche",
           estado: false,
         },
         {
           id: "1",
-          body: "azucar",
+          body: "Azucar",
           estado: false,
         },
         {
           id: "2",
-          body: "te",
+          body: "Té",
           estado: false,
         },
       ],
     },
     {
       id: "1",
-      nombre: "prueba2",
-      list: [{id: "0", body: "todo 2", estado: false}],
+      nombre: "Shopping list",
+      list: [
+        {
+          id: "0", 
+          body: "Milk", 
+          estado: false
+        },{
+          id: "1", 
+          body: "Sugar", 
+          estado: false
+        },{
+          id: "2", 
+          body: "Coffee", 
+          estado: false
+        }
+      ],
     },
   ],
 };
