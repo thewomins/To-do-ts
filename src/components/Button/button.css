@@ -13,10 +13,10 @@
     font-weight: 700;
     cursor: pointer;
     user-select: none;
+    padding: 15px 16px;
 }
 
 .layerOpacityButton{
-    padding: 10px 12px;
     border-radius: 15px;
     transition: all 0.2s ease-out;
 }
