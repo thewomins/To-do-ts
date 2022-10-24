@@ -1,80 +1,81 @@
 :root {
-    --bgColorInput: #fff;
-    --enfasisColorInput: #00668b;
-    --textFocusColor: rgba(0, 0, 0, 0.3);
-    --textNoFocusColor: rgba(0, 0, 0, 0.3);
-  }
-
-.input-field-fill{
-    height: 50px;
-    margin:auto auto;
-    background-color: var(--surfaceVariant);
-    border-radius: 4px 4px 0 0;
+  --bgColorInput: #fff;
+  --enfasisColorInput: #00668b;
+  --textFocusColor: rgba(0, 0, 0, 0.3);
+  --textNoFocusColor: rgba(0, 0, 0, 0.3);
 }
 
-.form__field{
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    margin: auto 0;
-    overflow:hidden;
-    height: 50px;
-    border: 0;
-    outline: 0;
-    box-sizing: border-box;
-    font-size: 1.2rem;
-    padding-left: 10px;
-    padding-top: 2.8vh;
-    background: transparent;
-    transition: border-color 0.2s; 
-    color: var(--onSurfaceVariant);
+.input-field-fill {
+  height: 50px;
+  margin: auto auto;
+  background-color: var(--surfaceVariant);
+  border-radius: 4px 4px 0 0;
 }
 
-.form__field:focus{
-    border-bottom: 2px solid var(--primary);
+.form__field {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: auto 0;
+  overflow: hidden;
+  height: 50px;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  padding-left: 10px;
+  padding-top: 2.8vh;
+  background: transparent;
+  transition: border-color 0.2s;
+  color: var(--onSurfaceVariant);
+}
+
+.form__field:focus {
+  border-bottom: 2px solid var(--primary);
 }
 
 /*si esta en focus y el placeholder no se debe mostrar*/
-.form__field:focus ~ .form__label, .form__field:not(:placeholder-shown) ~ .form__label {
-    position: relative;
-    z-index: 2;
-    display: block;
-    transform: translateY(-46px);
-    transition: transform 0.3s;
+.form__field:focus ~ .form__label,
+.form__field:not(:placeholder-shown) ~ .form__label {
+  position: relative;
+  z-index: 2;
+  display: block;
+  transform: translateY(-46px);
+  transition: transform 0.3s;
 }
 
 /*color del texto si esta en focus*/
-.form__field:focus ~ .form__label{
-    color: var(--onSurfaceVariant);
-    opacity: 0.3;
-    user-select: none;
+.form__field:focus ~ .form__label {
+  color: var(--onSurfaceVariant);
+  opacity: 0.3;
+  user-select: none;
 }
 
 /*color del texto si no esta en focus*/
-.form__field:not(:focus) ~ .form__label{
-    color: var(--onSurfaceVariant);
-    user-select: none;
+.form__field:not(:focus) ~ .form__label {
+  color: var(--onSurfaceVariant);
+  user-select: none;
 }
 
 /*inicio de el label*/
 .form__label {
-    user-select: none;
-    position: relative;
-    display: block;
-    margin-left: 2%;
-    transform: translateY(-35px);
-    font-size:1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    transition: transform 0.3s;
+  user-select: none;
+  position: relative;
+  display: block;
+  margin-left: 2%;
+  transform: translateY(-35px);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: transform 0.3s;
 }
 
-.childrenInput{
-    z-index: 2;
-    position: relative;
-    width: fit-content;
-    margin: 0 0 0 auto;
-    min-height: 40px;
-    height: 50px;
-    transform:translateY(-69px);
+.childrenInput {
+  z-index: 2;
+  position: relative;
+  width: fit-content;
+  margin: 0 0 0 auto;
+  min-height: 40px;
+  height: 50px;
+  transform: translateY(-69px);
 }

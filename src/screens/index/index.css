@@ -1,16 +1,14 @@
-
-
-.contenedor_buttons{
-    display: flex;
-    margin: 10px auto;
-    justify-content: center;
+.contenedor_buttons {
+  display: flex;
+  margin: 10px auto;
+  justify-content: center;
 }
 
-.contenedor_tareas{
-    display: flex;
-    flex-wrap: wrap;
-    width: 80%;
-    justify-content: center;
-    min-width: 300;
-    margin: 20px auto;
+.contenedor_tareas {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: center;
+  min-width: 300;
+  margin: 20px auto;
 }

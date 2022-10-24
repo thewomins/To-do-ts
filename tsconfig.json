@@ -1,12 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext",
-      "es2022"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext", "es2022"],
     "baseUrl": "./",
     "allowJs": true,
     "skipLibCheck": true,
@@ -22,7 +17,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "exclude": [
-    "node_modules",
-  ]
+  "exclude": ["node_modules"]
 }

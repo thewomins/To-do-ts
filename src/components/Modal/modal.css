@@ -1,72 +1,72 @@
-.outsideModal{
-    position:fixed;
-    display: flex;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--shadowTransparency);
+.outsideModal {
+  position: fixed;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--shadowTransparency);
 }
 
-.exitModal{
-    position: relative;
-    display: flex;
-    cursor: pointer;
-    z-index: 2;
-    height: 40px;
-    border-radius: 0 12px 0 12px;
-    transform: translateY(-276px) translateX(-40px);
-    transition: background-color 0.2s ease-out;
+.exitModal {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  z-index: 2;
+  height: 40px;
+  border-radius: 0 12px 0 12px;
+  transform: translateY(-276px) translateX(-40px);
+  transition: background-color 0.2s ease-out;
 }
 
-.exitModal:hover{
-    background-color: var(--primary);
-    transition: background-color 0.2s ease-in;
+.exitModal:hover {
+  background-color: var(--primary);
+  transition: background-color 0.2s ease-in;
 }
 
-.exitModal:hover .icon{
-    color: var(--onPrimary);
-    transition: background-color 0.2s ease-in;
+.exitModal:hover .icon {
+  color: var(--onPrimary);
+  transition: background-color 0.2s ease-in;
 }
 
-.deleteTodo{
-    position: relative;
-    display: flex;
-    cursor: pointer;
-    z-index: 2;
-    height: 40px;
-    border-radius: 12px 0 12px 0;
-    transform: translateY(-276px) translateX(40px);
-    transition: background-color 0.2s ease-out;
+.deleteTodo {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  z-index: 2;
+  height: 40px;
+  border-radius: 12px 0 12px 0;
+  transform: translateY(-276px) translateX(40px);
+  transition: background-color 0.2s ease-out;
 }
 
-.deleteTodo:hover{
-    color:var(--onPrimary);
-    background-color: var(--primary);
-    transition: background-color color 0.2s ease-in;
+.deleteTodo:hover {
+  color: var(--onPrimary);
+  background-color: var(--primary);
+  transition: background-color color 0.2s ease-in;
 }
 
-.deleteTodo:hover .icon{
-    color: var(--onPrimary);
-    transition: background-color 0.2s ease-in;
+.deleteTodo:hover .icon {
+  color: var(--onPrimary);
+  transition: background-color 0.2s ease-in;
 }
 
-.containerModal{
-    z-index: 1;
-    height: 90%;
-    width: 50%;
-    align-items: center;
-    border-radius: 15px;
-    background-color: var(--background);
+.containerModal {
+  z-index: 1;
+  height: 90%;
+  width: 50%;
+  align-items: center;
+  border-radius: 15px;
+  background-color: var(--background);
 }
 
-.containerComponentsModal{
-    display: flex;
-    flex-direction: column;
+.containerComponentsModal {
+  display: flex;
+  flex-direction: column;
 }
 
-@media screen and (max-width:700px) {
-    .containerModal{
-        width:90%;
-    }
+@media screen and (max-width: 700px) {
+  .containerModal {
+    width: 90%;
+  }
 }

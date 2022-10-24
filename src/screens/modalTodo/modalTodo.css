@@ -1,86 +1,86 @@
-.containerDescription{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden
+.containerDescription {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.containerTasks{
-    margin:5px 10px;
-    max-height: 68vh;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+.containerTasks {
+  margin: 5px 10px;
+  max-height: 68vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-.containerButtonModal{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin:5px;
-    justify-content: space-evenly;
+.containerButtonModal {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 5px;
+  justify-content: space-evenly;
 }
 
 .containerTasks::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
 
 /* Track */
 .containerTasks::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 2px grey; 
-    border-radius: 10px;
+  box-shadow: inset 0 0 2px grey;
+  border-radius: 10px;
 }
 
 /* Handle */
 .containerTasks::-webkit-scrollbar-thumb {
-    background: blue; 
-    border-radius: 10px;
+  background: blue;
+  border-radius: 10px;
 }
 
 /* Handle on hover */
 .containerTasks::-webkit-scrollbar-thumb:hover {
-    background: #009eb3; 
+  background: #009eb3;
 }
 
-.titleModalDetails{
-    display: flex;
-    font-weight: 700;
-    justify-content: center;
-    background-color: var(--surface);
-    border-radius: 15px 15px 0 0;
-    border-bottom: 1.5px solid var(--outlineVariant);
-    color: var(--onSurface);
+.titleModalDetails {
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  background-color: var(--surface);
+  border-radius: 15px 15px 0 0;
+  border-bottom: 1.5px solid var(--outlineVariant);
+  color: var(--onSurface);
 }
 
-.titleModalDetails:hover .iconContainerTitle{
-    opacity: 1;
-    transition: all 0.2s ease-in;
+.titleModalDetails:hover .iconContainerTitle {
+  opacity: 1;
+  transition: all 0.2s ease-in;
 }
 
-.iconContainerTitle{
-    display: flex;
-    opacity: 0;
-    align-items: center;
-    margin:5px;
-    transition: all 0.2s ease-out;
+.iconContainerTitle {
+  display: flex;
+  opacity: 0;
+  align-items: center;
+  margin: 5px;
+  transition: all 0.2s ease-out;
 }
 
-.iconContainerMargin{
-    display:flex;
-    height:60%;
-    align-items: center;
-    border-radius: 10px;
-    transition: all 0.2s ease-in;
+.iconContainerMargin {
+  display: flex;
+  height: 60%;
+  align-items: center;
+  border-radius: 10px;
+  transition: all 0.2s ease-in;
 }
 
-.iconContainerMargin:hover{
-    cursor: pointer;
-    background-color: var(--primary);
-    color: var(--onPrimary);
-    transition: all 0.2s ease-in;
+.iconContainerMargin:hover {
+  cursor: pointer;
+  background-color: var(--primary);
+  color: var(--onPrimary);
+  transition: all 0.2s ease-in;
 }
 
-.iconContainerMargin:hover .icon{
-    color: var(--onPrimary);
-    transition: all 0.2s ease-out;
+.iconContainerMargin:hover .icon {
+  color: var(--onPrimary);
+  transition: all 0.2s ease-out;
 }

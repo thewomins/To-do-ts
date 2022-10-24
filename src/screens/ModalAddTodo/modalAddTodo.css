@@ -1,58 +1,58 @@
-.containerDescription{
-    margin:10px 15px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden
+.containerDescription {
+  margin: 10px 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
-.containerButtonModal{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+.containerButtonModal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-.containerButtonActionModal{
-    display: flex;
-    margin:auto 0px;
-    flex-direction: row;
-    justify-content: space-evenly;
+.containerButtonActionModal {
+  display: flex;
+  margin: auto 0px;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-.containerAddTaskModal{
-    margin:5px 0;
-    max-height: 54vh;
-    overflow-y: auto;
-    scroll-behavior: smooth;
+.containerAddTaskModal {
+  margin: 5px 0;
+  max-height: 54vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .containerAddTaskModal::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
 
 /* Track */
 .containerAddTaskModal::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 2px grey; 
-    border-radius: 10px;
+  box-shadow: inset 0 0 2px grey;
+  border-radius: 10px;
 }
 
 /* Handle */
 .containerAddTaskModal::-webkit-scrollbar-thumb {
-    background: blue; 
-    border-radius: 10px;
+  background: blue;
+  border-radius: 10px;
 }
 
 /* Handle on hover */
 .containerAddTaskModal::-webkit-scrollbar-thumb:hover {
-    background: #009eb3; 
+  background: #009eb3;
 }
 
-.titleModalAddTodo{
-    display: flex;
-    font-weight: 700;
-    justify-content: center;
-    background-color: var(--surface);
-    border-radius: 15px 15px 0 0;
-    border-bottom: 1.5px solid var(--outlineVariant);
-    color: var(--onSurface);
+.titleModalAddTodo {
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  background-color: var(--surface);
+  border-radius: 15px 15px 0 0;
+  border-bottom: 1.5px solid var(--outlineVariant);
+  color: var(--onSurface);
 }

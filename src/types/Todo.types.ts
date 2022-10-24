@@ -54,4 +54,7 @@ export type TTheme = {
 
 export type TThemesAvailable = "light" | "dark";
 
-export type reducerActionTheme= |{type:"changeThemeTo",themeName:TThemesAvailable};
+export type reducerActionTheme = {
+  type: "changeThemeTo";
+  themeName: TThemesAvailable;
+};
