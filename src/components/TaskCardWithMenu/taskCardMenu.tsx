@@ -1,22 +1,20 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {TaskType} from "../../types/Todo.types";
 import TaskCard from "../../components/TaskCard/taskCard";
 import Input from "../Input/input";
 import "./taskCardMenu.css";
-import { useTodo } from "src/hooks/Todo";
-import {MdEdit,MdDeleteForever,MdAdd,MdCancel} from "react-icons/md";
+import {useTodo} from "src/hooks/Todo";
+import {MdEdit, MdDeleteForever, MdAdd, MdCancel} from "react-icons/md";
 
 type props = {
   task: TaskType;
-  children: any;
-  onClickTask?: any;
+  onClickTask?: () => void;
   withCheck?: boolean;
   idTodo: string;
 };
 
 const TaskCardMenu: React.FC<props> = ({
   task,
-  children,
   onClickTask,
   withCheck,
   idTodo,
@@ -26,7 +24,7 @@ const TaskCardMenu: React.FC<props> = ({
   const [taskEditing, setTaskEditing] = useState(false);
   const {dispatch} = useTodo();
 
-  useEffect(() => console.log(taskHover), [taskHover]);
+  /*useEffect(() => console.log(taskHover), [taskHover]);*/
 
   const onChangeTasks = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTaskBody(event.target.value);
@@ -41,94 +39,104 @@ const TaskCardMenu: React.FC<props> = ({
     setTaskHover(false);
   };
 
-  const onClickEditTask= ((taskId:string) => {
+  const onClickEditTask = (taskId: string) => {
     setTaskBody(task.body);
     setTaskEditing(true);
-    console.log("edit",taskId);
-  });
+    console.log("edit", taskId);
+  };
 
-  const onClickDeleteTask= ((taskId:string) => {
-    dispatch({type:"deleteTask", idTodo:idTodo, idTask: task.id});
-    console.log("deleted",taskId);
-  });
+  const onClickDeleteTask = (taskId: string) => {
+    dispatch({type: "deleteTask", idTodo: idTodo, idTask: task.id});
+    console.log("deleted", taskId);
+  };
 
-  const onClickAddTask= ((taskId:string) => {
-    dispatch({type:"updateTask", idTodo:idTodo, idTask: task.id, body:taskBody});
-    console.log("add",taskId);
+  const onClickAddTask = (taskId: string) => {
+    dispatch({
+      type: "updateTask",
+      idTodo: idTodo,
+      idTask: task.id,
+      body: taskBody,
+    });
+    console.log("add", taskId);
     stopEditing();
-  });
+  };
 
-  const stopEditing= (() => {
+  const stopEditing = () => {
     setTaskEditing(false);
     setTaskBody("");
-  });
+  };
 
   return (
     <div>
-      {!taskEditing ?
+      {!taskEditing ? (
         <TaskCard //items de tareas
           className="taskDetails"
           task={task}
           onClickTask={onClickTask}
           withCheck={withCheck}
           onMouseEnter={handleOnMouseOverTask}
-          onMouseLeave={handleOnMouseOutTask}>
+          onMouseLeave={handleOnMouseOutTask}
+        >
           {/*items in the right of task card */}
           {taskHover && (
-            <div
-              className="iconsContainer"
-              >
+            <div className="iconsContainer">
               <div
                 className="iconContainerL"
                 style={{paddingLeft: "5px"}}
-                onClick={()=>onClickEditTask(task.id)}
+                onClick={() => onClickEditTask(task.id)}
               >
-                <MdEdit className="icon"/>
+                <MdEdit className="icon" />
               </div>
-              <div className="divisor"/>
+              <div className="divisor" />
               <div
                 className="iconContainerR"
                 style={{paddingRight: "5px"}}
-                onClick={()=>onClickDeleteTask(task.id)}
-                >
-                <MdDeleteForever className="icon"/>
+                onClick={() => onClickDeleteTask(task.id)}
+              >
+                <MdDeleteForever className="icon" />
               </div>
             </div>
           )}
         </TaskCard>
-      :
-      <div style={{display:"flex",margin: "4px 5px 4px 5px",height:"50px"}}>
-        <Input
-          style={{width:"100%"}}
-          id={"added"}
-          textoInput="Tarea"
-          type="text"
-          color="primary"
-          onChange={onChangeTasks} 
-          value={taskBody}
+      ) : (
+        <div
+          style={{display: "flex", margin: "4px 5px 4px 5px", height: "50px"}}
+        >
+          <Input
+            style={{width: "100%"}}
+            id={"added"}
+            textoInput="Tarea"
+            type="text"
+            color="primary"
+            onChange={onChangeTasks}
+            value={taskBody}
           >
-          <div 
-            className="inputHandlerContainer" 
-            style={{backgroundColor: "var(--surfaceVariant)",borderRadius:"0 2px 0 0"}}
+            <div
+              className="inputHandlerContainer"
+              style={{
+                backgroundColor: "var(--surfaceVariant)",
+                borderRadius: "0 2px 0 0",
+              }}
             >
-            <div 
-              className="iconContainerL" 
-              style={{paddingLeft: "5px"}}
-              onClick={()=>onClickAddTask(task.id)}
+              <div
+                className="iconContainerL"
+                style={{paddingLeft: "5px"}}
+                onClick={() => onClickAddTask(task.id)}
               >
-              <MdAdd className="icon"/>
-            </div>
-            <div className="divisor"/>
-            <div 
-              className="iconContainerR"
-              style={{paddingRight: "5px"}}
-              onClick={()=>stopEditing()}
+                <MdAdd className="icon" />
+              </div>
+              <div className="divisor" />
+              <div
+                className="iconContainerR"
+                style={{paddingRight: "5px"}}
+                onClick={() => stopEditing()}
               >
-              <MdCancel className="icon"/>
+                <MdCancel className="icon" />
+              </div>
             </div>
-          </div>
-        </Input>
-      </div>}
+          </Input>
+        </div>
+      )}
     </div>
   );
 };

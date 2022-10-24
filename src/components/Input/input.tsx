@@ -29,17 +29,16 @@ type props = {
   id: string;
   textoInput: string;
   color?: color;
-  onChange?: any;
-  style?: any;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>, id: string) => void;
+  style?: React.CSSProperties;
   type: string;
   value?: string;
-  children?: any;
+  children?: React.ReactNode;
 };
 
 //change color variables in css
 function setColors(colorSchema: schema) {
   Object.entries(colorSchema).forEach(element => {
-    console.log(element[0], element[1]);
     document.documentElement.style.setProperty("--" + element[0], element[1]);
   });
 }
@@ -66,16 +65,14 @@ const Input: React.FC<props> = ({
         placeholder=" "
         name={textoInput}
         id={id}
-        onChange={e => onChange(e, id)}
+        onChange={onChange ? e => onChange(e, id) : undefined}
         required
         value={value}
       />
       <label htmlFor={id} className="form__label">
         {textoInput}
       </label>
-      <div className="childrenInput">
-        {children}
-      </div>
+      <div className="childrenInput">{children}</div>
     </div>
   );
 };

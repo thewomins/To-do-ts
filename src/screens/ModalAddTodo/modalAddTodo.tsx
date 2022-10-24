@@ -1,10 +1,10 @@
-import React, {useEffect, useId, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Modal from "../../components/Modal/modal";
 import {Todo, TaskType} from "../../types/Todo.types";
 import "./modalAddTodo.css";
 import Input from "../../components/Input/input";
 import Button from "../../components/Button/button";
-import { v4 as uuid } from "uuid";
+import {v4 as uuid} from "uuid";
 
 type props = {
   show: boolean;
@@ -24,14 +24,14 @@ const ModalAddTodo: React.FC<props> = ({
     {id: "0", body: "", estado: false},
   ]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     console.log("task", task);
-  }, [task]);
+  }, [task]);*/
 
   useEffect(() => {
     setName("");
     setTask([{id: "0", body: "", estado: false}]);
-    console.log("reset modal");
+    //console.log("reset modal");
   }, [show]);
 
   const onClickOutside = () => {
@@ -54,7 +54,7 @@ const ModalAddTodo: React.FC<props> = ({
     event: React.ChangeEvent<HTMLInputElement>,
     idTask: string,
   ) => {
-    console.log(idTask);
+    //console.log(idTask);
     const id = task.findIndex(task => task.id === idTask);
     setTask([
       ...task.slice(0, id), // separa la primera parte
@@ -108,10 +108,10 @@ const ModalAddTodo: React.FC<props> = ({
           ))}
         </div>
         <div className="containerButtonActionModal">
-          <Button 
-            textoButton="Cancelar" 
+          <Button
+            textoButton="Cancelar"
             color="secondary"
-            onClick={() => onClickOutside()} 
+            onClick={() => onClickOutside()}
           />
           <Button
             textoButton="Añadir To-do"
