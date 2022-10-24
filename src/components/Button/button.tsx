@@ -16,7 +16,8 @@ const Button: React.FC<props> = ({
     <div
       className={color ? "button btn_" + color : "button"}
       style={{backgroundColor: color}}
-      onClick={onClick}>
+      onClick={onClick}
+    >
       <div className="layerOpacityButton" />
       <p className="text">{textoButton}</p>
     </div>

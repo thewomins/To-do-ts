@@ -29,11 +29,14 @@ export const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const changeTheme = (nightMode:boolean)=>{
-      dispatchTheme({type: "changeThemeTo",themeName: nightMode ? "dark" : "light"});
+    const changeTheme = (nightMode: boolean) => {
+      dispatchTheme({
+        type: "changeThemeTo",
+        themeName: nightMode ? "dark" : "light",
+      });
     };
     const darkMode = window.matchMedia("(prefers-color-scheme: dark)");
-    darkMode.addEventListener("change",e => changeTheme(e.matches));
+    darkMode.addEventListener("change", e => changeTheme(e.matches));
     return window
       .matchMedia("(prefers-color-scheme: dark)")
       .removeEventListener("change", e => changeTheme(e.matches));
@@ -100,7 +103,7 @@ export const App: React.FC = () => {
         />
       </div>
       <div className="contenedor_tareas">
-        {Todos.todoItems.map((Todo) => (
+        {Todos.todoItems.map(Todo => (
           <TareaCard
             key={Todo.id}
             onClickCard={() => onClickCard(Todo)}

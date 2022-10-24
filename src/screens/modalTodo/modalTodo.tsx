@@ -139,7 +139,7 @@ const ModalTodo: React.FC<props> = ({setShow, show, idTodo}) => {
       )}
       <div className="containerDescription">
         <div className="containerTasks">
-          {Todos?.todoItems[todoPos]?.list.map((task) => (
+          {Todos?.todoItems[todoPos]?.list.map(task => (
             //edit task need to be here
             <TaskCardMenu //items de tareas
               key={task.id}

@@ -22,7 +22,7 @@ const TareaCard: React.FC<props> = ({tarea, onClickCard, onClickTask}) => {
           <h3 className="title">{tarea.nombre}</h3>
         </div>
         <div className="tasks_container">
-          {tarea.list.map((task) => (
+          {tarea.list.map(task => (
             <TaskCard //items de tareas
               key={task.id}
               task={task}
