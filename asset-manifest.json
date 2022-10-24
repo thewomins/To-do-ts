@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/To-do-ts/static/css/main.ed6966df.css",
-    "main.js": "/To-do-ts/static/js/main.437149e0.js",
+    "main.css": "/To-do-ts/static/css/main.8bf8bb50.css",
+    "main.js": "/To-do-ts/static/js/main.92f411cb.js",
     "static/js/787.2a11ebcc.chunk.js": "/To-do-ts/static/js/787.2a11ebcc.chunk.js",
     "static/media/Metropolis-Bold.woff": "/To-do-ts/static/media/Metropolis-Bold.a1e10adde11254f9aff2.woff",
     "static/media/Metropolis-Regular.woff": "/To-do-ts/static/media/Metropolis-Regular.d6363f8209002f967c3d.woff",
     "index.html": "/To-do-ts/index.html",
-    "main.ed6966df.css.map": "/To-do-ts/static/css/main.ed6966df.css.map",
-    "main.437149e0.js.map": "/To-do-ts/static/js/main.437149e0.js.map",
+    "main.8bf8bb50.css.map": "/To-do-ts/static/css/main.8bf8bb50.css.map",
+    "main.92f411cb.js.map": "/To-do-ts/static/js/main.92f411cb.js.map",
     "787.2a11ebcc.chunk.js.map": "/To-do-ts/static/js/787.2a11ebcc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ed6966df.css",
-    "static/js/main.437149e0.js"
+    "static/css/main.8bf8bb50.css",
+    "static/js/main.92f411cb.js"
   ]
 }
