@@ -1,6 +1,6 @@
 ## Available Scripts
 
-[![CodeQL](https://github.com/thewomins/To-do-ts/actions/workflows/codeql.yml/badge.svg?branch=master)](https://github.com/thewomins/To-do-ts/actions/workflows/codeql.yml)
+[![CodeQL](https://github.com/thewomins/To-do-ts/actions/workflows/codeql.yml/badge.svg?branch=master)](https://github.com/thewomins/To-do-ts/actions/workflows/codeql.yml) [![Format](https://github.com/thewomins/To-do-ts/actions/workflows/auto-format-prettier.yaml/badge.svg?branch=master)](https://github.com/thewomins/To-do-ts/actions/workflows/auto-format-prettier.yaml)
 
 In the project directory, you can run:
 
