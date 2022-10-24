@@ -1,5 +1,9 @@
-import React, {useContext, useReducer} from "react";
-import { reducerActionTheme, TTheme, TThemesAvailable } from "src/types/Todo.types";
+import React, {useContext, useEffect, useReducer} from "react";
+import {
+  reducerActionTheme,
+  TTheme,
+  TThemesAvailable,
+} from "src/types/Todo.types";
 
 const themes: {[Key in TThemesAvailable]: TTheme} = {
   light: {
@@ -56,11 +60,11 @@ const themes: {[Key in TThemesAvailable]: TTheme} = {
     onSurfaceVariant: "#c5c6d0",
     shadow: "#000000",
     shadowTransparency: "rgba(0, 0, 0, 0.5)",
-    opacityHover:"rgba(0, 0, 0, 0.08)",
+    opacityHover: "rgba(0, 0, 0, 0.08)",
   },
 };
 
-const initialState:TThemesAvailable = "light" ;
+const initialState: TThemesAvailable = "light";
 
 //por cada propiedad en theme setea la propiedad
 function setTheme(Theme: TTheme) {
@@ -73,7 +77,6 @@ function setTheme(Theme: TTheme) {
 const reducer = (state: TThemesAvailable, action: reducerActionTheme) => {
   switch (action.type) {
     case "changeThemeTo":
-      setTheme(themes[action.themeName]);
       return action.themeName;
     default:
       throw new Error();
@@ -81,14 +84,16 @@ const reducer = (state: TThemesAvailable, action: reducerActionTheme) => {
 };
 
 const ThemeContext = React.createContext<{
-  theme:TThemesAvailable,
-  dispatchTheme:React.Dispatch<reducerActionTheme>
+  theme: TThemesAvailable;
+  dispatchTheme: React.Dispatch<reducerActionTheme>;
 }>({
   theme: initialState,
   dispatchTheme: () => initialState,
 });
 
-const ThemeContextProvider: React.FC<{children:React.ReactNode}> = ({children}) => {
+const ThemeContextProvider: React.FC<{children: React.ReactNode}> = ({
+  children,
+}) => {
   const [theme, dispatchTheme] = useReducer(reducer, initialState);
 
   return (
@@ -100,6 +105,11 @@ const ThemeContextProvider: React.FC<{children:React.ReactNode}> = ({children}) 
 
 const useTheme = () => {
   const {theme = initialState, dispatchTheme} = useContext(ThemeContext);
+
+  useEffect(() => {
+    setTheme(themes[theme]);
+  }, [theme]);
+
   return {theme, dispatchTheme};
 };
 
