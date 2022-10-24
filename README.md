@@ -1,5 +1,7 @@
 ## Available Scripts
 
+[![CodeQL](https://github.com/thewomins/To-do-ts/actions/workflows/codeql.yml/badge.svg?branch=master)](https://github.com/thewomins/To-do-ts/actions/workflows/codeql.yml)
+
 In the project directory, you can run:
 
 ### `npm start`
