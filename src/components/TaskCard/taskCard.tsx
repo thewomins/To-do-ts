@@ -1,16 +1,16 @@
-import React, {Children} from "react";
+import React from "react";
 import "./taskCard.css";
 import {TaskType} from "../../types/Todo.types";
-import {MdOutlineCircle,MdCheckCircleOutline} from "react-icons/md";
+import {MdOutlineCircle, MdCheckCircleOutline} from "react-icons/md";
 
 type props = {
   task: TaskType;
-  onClickTask?: any;
+  onClickTask?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   className?: string;
   withCheck?: boolean;
-  children?: any;
-  onMouseEnter?: any;
-  onMouseLeave?: any;
+  children?: React.ReactNode;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 };
 
 const TaskCard: React.FC<props> = ({
@@ -20,23 +20,22 @@ const TaskCard: React.FC<props> = ({
   withCheck = true,
   onMouseEnter,
   onMouseLeave,
-  className="task",
+  className = "task",
 }) => {
   return (
-    <div 
-      className={className} 
-      onClick={onClickTask}
-      onMouseEnter={onMouseEnter} 
+    <div
+      className={className}
+      onClick={onClickTask ? e => onClickTask(e) : undefined}
+      onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      >
+    >
       <p>{task.body}</p>
-      {withCheck && (
-        task.estado ? (
-          <MdCheckCircleOutline className="state active"/>
+      {withCheck &&
+        (task.estado ? (
+          <MdCheckCircleOutline className="state active" />
         ) : (
           <MdOutlineCircle className="state" />
-        )
-      )}
+        ))}
       {children}
     </div>
   );

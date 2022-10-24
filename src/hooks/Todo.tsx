@@ -1,6 +1,6 @@
 import React, {useContext, useReducer} from "react";
 import {reducerAction, TodoList} from "../types/Todo.types";
-import { v4 as uuid } from "uuid";
+import {v4 as uuid} from "uuid";
 
 const initialState: TodoList = {
   todoItems: [
@@ -30,18 +30,20 @@ const initialState: TodoList = {
       nombre: "Shopping list",
       list: [
         {
-          id: "0", 
-          body: "Milk", 
-          estado: false
-        },{
-          id: "1", 
-          body: "Sugar", 
-          estado: false
-        },{
-          id: "2", 
-          body: "Coffee", 
-          estado: false
-        }
+          id: "0",
+          body: "Milk",
+          estado: false,
+        },
+        {
+          id: "1",
+          body: "Sugar",
+          estado: false,
+        },
+        {
+          id: "2",
+          body: "Coffee",
+          estado: false,
+        },
       ],
     },
   ],
@@ -187,7 +189,7 @@ const reducer = (state: TodoList, action: reducerAction) => {
           {
             //se edita la parte encontrada
             ...state.todoItems[b], //copia del estado anterior del todo
-            nombre:action.title //cambia el titulo
+            nombre: action.title, //cambia el titulo
           }, //fin edicion tasks
           ...state.todoItems.slice(b + 1),
         ], // resto de los Todos added
@@ -199,14 +201,16 @@ const reducer = (state: TodoList, action: reducerAction) => {
 };
 
 const TodoContext = React.createContext<{
-  Todos:TodoList,
-  dispatch: React.Dispatch<reducerAction>,
+  Todos: TodoList;
+  dispatch: React.Dispatch<reducerAction>;
 }>({
   Todos: initialState,
   dispatch: () => initialState,
 });
 
-const TodoContextProvider:React.FC<{children:React.ReactNode}> = ({children}) => {
+const TodoContextProvider: React.FC<{children: React.ReactNode}> = ({
+  children,
+}) => {
   const [Todos, dispatch] = useReducer(reducer, initialState);
 
   return (

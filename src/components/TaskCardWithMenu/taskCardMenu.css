@@ -1,70 +1,72 @@
-.taskDetails{
-    display: flex;
-    flex-direction: row;
-    padding: 0 0 0 15px;
-    margin: 2px 5px;
-    border-radius: 100px;
-    user-select: none;
-    transition: all 0.2s ease-out;
-    color: var(--onBackground);
+.taskDetails {
+  display: flex;
+  flex-direction: row;
+  padding: 0 0 0 15px;
+  margin: 2px 5px;
+  border-radius: 100px;
+  user-select: none;
+  transition: all 0.2s ease-out;
+  color: var(--onBackground);
 }
 
-.taskDetails:hover{
-    background-color: var(--opacityHover);
-    transition: all 0.2s ease-in;
+.taskDetails:hover {
+  background-color: var(--opacityHover);
+  transition: all 0.2s ease-in;
 }
 
-.inputHandlerContainer{
-    display: flex;
-    height: 100%;
-    padding-right: 3px;
-    align-items: center;
+.inputHandlerContainer {
+  display: flex;
+  height: 100%;
+  padding-right: 3px;
+  align-items: center;
 }
 
-.iconsContainer{
-    display: flex;
-    align-items: center;
-    margin-right: 3px;
-    margin-left: auto;
+.iconsContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 3px;
+  margin-left: auto;
 }
 
-.divisor{
-    height: 90%;
-    width: 2px;
-    background-color: var(--outline);
-    margin:auto 2px;
-    transition: all 0.2s ease-in-out;
+.divisor {
+  height: 90%;
+  width: 2px;
+  background-color: var(--outline);
+  margin: auto 2px;
+  transition: all 0.2s ease-in-out;
 }
 
-.iconContainerR{
-    display:flex;
-    height:90%;
-    align-items: center;
-    border-radius: 0 30px 30px 0;
-    transition: all 0.3s ease-out;
+.iconContainerR {
+  display: flex;
+  height: 90%;
+  align-items: center;
+  border-radius: 0 30px 30px 0;
+  transition: all 0.3s ease-out;
 }
 
-.iconContainerL{
-    display:flex;
-    height:90%;
-    align-items: center;
-    border-radius: 30px 0 0 30px;
-    transition: all 0.2s ease-out;
+.iconContainerL {
+  display: flex;
+  height: 90%;
+  align-items: center;
+  border-radius: 30px 0 0 30px;
+  transition: all 0.2s ease-out;
 }
 
-.iconContainerR:hover ,.iconContainerL:hover {
-    cursor: pointer;
-    background-color: var(--primary);
-    transition: all 0.2s ease-in;
+.iconContainerR:hover,
+.iconContainerL:hover {
+  cursor: pointer;
+  background-color: var(--primary);
+  transition: all 0.2s ease-in;
 }
 
-.iconContainerR:hover .icon,.iconContainerL:hover .icon{
-    color: var(--onPrimary);
+.iconContainerR:hover .icon,
+.iconContainerL:hover .icon {
+  color: var(--onPrimary);
 }
 
-.icon{
-    width:20px;
-    height:20px;
-    margin: auto 10px;
-    color: var(--onBackground);
+.icon {
+  width: 20px;
+  height: 20px;
+  margin: auto 10px;
+  color: var(--onBackground);
 }

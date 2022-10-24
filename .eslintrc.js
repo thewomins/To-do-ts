@@ -17,6 +17,7 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "@typescript-eslint"],
+  ignorePatterns: ["build/*"],
   rules: {
     quotes: ["error", "double"],
     semi: ["error", "always"],

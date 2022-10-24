@@ -1,12 +1,16 @@
 import React from "react";
 import TaskCard from "../TaskCard/taskCard";
-import {Todo} from "../../types/Todo.types";
+import {TaskType, Todo} from "../../types/Todo.types";
 import "./tareaCard.css";
 
 type props = {
   tarea: Todo;
-  onClickCard?: any;
-  onClickTask?: any;
+  onClickCard?: () => void;
+  onClickTask?: (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    tarea: Todo,
+    task: TaskType,
+  ) => void;
 };
 
 const TareaCard: React.FC<props> = ({tarea, onClickCard, onClickTask}) => {
@@ -18,11 +22,13 @@ const TareaCard: React.FC<props> = ({tarea, onClickCard, onClickTask}) => {
           <h3 className="title">{tarea.nombre}</h3>
         </div>
         <div className="tasks_container">
-          {tarea.list.map((task, index) => (
+          {tarea.list.map(task => (
             <TaskCard //items de tareas
-              key={index}
+              key={task.id}
               task={task}
-              onClickTask={(e: any) => onClickTask(e, tarea, task)}
+              onClickTask={
+                onClickTask ? e => onClickTask(e, tarea, task) : undefined
+              }
             />
           ))}
         </div>

@@ -1,32 +1,39 @@
-.btn_primary{
-    background-color: var(--primary);
-    color: var(--onPrimary);
+.btn_primary {
+  background-color: var(--primary);
+  color: var(--onPrimary);
 }
 
-.btn_secondary{
-    background-color: var(--secundaryContainer);
-    color: var(--onSecundaryContainer);
+.btn_secondary {
+  background-color: var(--secundaryContainer);
+  color: var(--onSecundaryContainer);
 }
 
-.button{
-    border-radius: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    user-select: none;
-    padding: 15px 16px;
+.button {
+  display: grid;
+  height: 45px;
+  width: fit-content;
+  border-radius: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  align-items: center;
 }
 
-.layerOpacityButton{
-    border-radius: 15px;
-    transition: all 0.2s ease-out;
+.layerOpacityButton {
+  grid-area: 1 / 1 / 2 / 2;
+  height: inherit;
+  width: 100%;
+  border-radius: 15px;
+  pointer-events: none;
+  transition: all 0.2s ease-out;
 }
 
-.button:hover .layerOpacityButton{
-    background-color: var(--opacityHover);
-    transition: all 0.2s ease-in;
+.button:hover .layerOpacityButton {
+  background-color: var(--opacityHover);
+  transition: all 0.2s ease-in;
 }
 
-.text{
-    margin: 0;
+.text {
+  grid-area: 1 / 1 / 2 / 2;
+  margin: 0px 16px;
 }
-

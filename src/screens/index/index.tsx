@@ -17,23 +17,32 @@ export const App: React.FC = () => {
   const [todoSelected, setTodoSelected] = useState<string>("0");
   const {theme, dispatchTheme} = useTheme();
 
-  useEffect(() => console.log("theme", theme), [theme]);
+  /*useEffect(() => console.log("theme", theme), [theme]);*/
 
   useLayoutEffect(() => {
-    //dispatchTheme({type:"changeThemeTo", themeName: "dark"});
-    const modeMe = (e: any) => {
-      dispatchTheme({type:"changeThemeTo", themeName: e.matches ? "dark" : "light"});
-    };
-    modeMe(window.matchMedia("(prefers-color-scheme: dark)"));
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", modeMe);
-    return window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .removeEventListener("change", modeMe);
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      dispatchTheme({type: "changeThemeTo", themeName: "dark"});
+    }
   }, []);
 
-  useEffect(() => console.log("todo", Todos), [Todos]);
+  useEffect(() => {
+    const changeTheme = (nightMode: boolean) => {
+      dispatchTheme({
+        type: "changeThemeTo",
+        themeName: nightMode ? "dark" : "light",
+      });
+    };
+    const darkMode = window.matchMedia("(prefers-color-scheme: dark)");
+    darkMode.addEventListener("change", e => changeTheme(e.matches));
+    return window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .removeEventListener("change", e => changeTheme(e.matches));
+  }, []);
+
+  //useEffect(() => console.log("todo", Todos), [Todos]);
 
   const onClickAdd = () => {
     setShowModalAdd(true);
@@ -46,25 +55,27 @@ export const App: React.FC = () => {
     setTodoSelected(todo.id);
   };
 
-  const onClickTask = (event: any, todo: Todo, task: TaskType) => {
-    const task1 = {
-      id: 0,
-      body: "prueba task",
-      estado: false,
-    };
+  const onClickTask = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    todo: Todo,
+    task: TaskType,
+  ) => {
     dispatch({type: "changeStateTask", idTodo: todo.id, idTask: task.id});
     //task.estado=!task.estado
     event.stopPropagation();
   };
 
   const onClickSubmit = (todo: Todo) => {
-    console.info("click submit", todo);
+    //console.info("click submit", todo);
     dispatch({type: "addTodo", Todo: todo});
     setShowModalAdd(false);
   };
 
-  const onChangeCheck=(event:any)=>{
-    dispatchTheme({type:"changeThemeTo", themeName: event.target.checked ? "dark" : "light"});
+  const onChangeCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatchTheme({
+      type: "changeThemeTo",
+      themeName: event.target.checked ? "dark" : "light",
+    });
   };
 
   return (
@@ -80,8 +91,8 @@ export const App: React.FC = () => {
         setShow={setShowModalDetail}
         idTodo={todoSelected}
       />
-      <Menu 
-        state={theme === "dark"? false: true}
+      <Menu
+        state={theme === "dark" ? true : false}
         onChangeCheck={onChangeCheck}
       />
       <div className="contenedor_buttons">
@@ -92,10 +103,10 @@ export const App: React.FC = () => {
         />
       </div>
       <div className="contenedor_tareas">
-        {Todos.todoItems.map((Todo, index) => (
+        {Todos.todoItems.map(Todo => (
           <TareaCard
-            key={index}
-            onClickCard={(e: any) => onClickCard(Todo)}
+            key={Todo.id}
+            onClickCard={() => onClickCard(Todo)}
             onClickTask={onClickTask}
             tarea={Todo}
           />
